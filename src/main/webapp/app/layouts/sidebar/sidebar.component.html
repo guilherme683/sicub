@@ -1,0 +1,31 @@
+<div>
+    <span>
+        <mat-icon (click)="sidenav.toggle()" class="burguer-icon branco-gelo" *ngIf="isAuthenticated()">menu</mat-icon>
+    </span>
+    <router-outlet name="navbar"></router-outlet>
+</div>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        <mat-selection-list role="option">
+            <a mat-menu-item routerLink="sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()"><mat-list-option>Catálogo de Sistemas</mat-list-option></a>
+            <!-- <mat-menu yPosition="below" #menu="matMenu">
+                <a mat-menu-item routerLink="sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">Sistema</a>
+                <a mat-menu-item routerLink="criticidade" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">Criticidade</a>
+            </mat-menu> -->
+            <mat-list-option>Métricas</mat-list-option>
+            <mat-list-option>Configurações</mat-list-option>
+        </mat-selection-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <div class="container-fluid">
+            <div class="card jh-card">
+                <router-outlet></router-outlet>
+                <router-outlet name="popup"></router-outlet>
+            </div>
+            <jhi-footer></jhi-footer>
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

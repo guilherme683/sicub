@@ -1,0 +1,83 @@
+
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url("../../content/images/hipster.png") no-repeat center top;
+    background-size: contain;
+}
+
+.logo-img {
+            height: 70px;
+            width: 70px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url("../../content/images/sicub2.png") no-repeat center center;
+
+        }
+
+ .lead{
+    color: #3F51B5;
+ }
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    .hipster {
+        background: url("../../content/images/hipster2x.png") no-repeat center top;
+        background-size: contain;
+    }
+
+
+}
+
+
+/* Absolute Center Spinner
+.loading-indicator {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
+
+/* Transparent Overlay
+.loading-indicator:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+} */
+
+
+/* .loader-hidden {
+    visibility: hidden;
+} */
+
+/*
+.loader-overlay {
+    position: absolute;
+    width:100%;
+    top:0;
+    left: 0;
+    opacity: 1;
+    z-index: 500000;
+} */

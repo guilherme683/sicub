@@ -1,0 +1,102 @@
+<!--<div class="modal-header">-->
+<!--<h4 class="modal-title" jhiTranslate="login.title">Sign in</h4>-->
+<!--<button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')"><span aria-hidden="true">x</span>-->
+<!--</button>-->
+<!--</div>-->
+<!--<div class="">-->
+<!--<div class="row justify-content-center">-->
+<!--<div class="col-md-8">-->
+<!--<div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">-->
+<!--<strong>Failed to sign in!</strong> Please check your credentials and try again.-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-md-8">-->
+<!--<mat-dialog-content class="scroll-off">-->
+<!--<mat-form-field class="full-width">-->
+<!--<label for="username" jhiTranslate="global.form.username">Login</label>-->
+<!--<input matInput type="text" class="form-control" name="username" id="username" [(ngModel)]="username">-->
+<!--</mat-form-field>-->
+<!--<div class="form-group">-->
+<!--<label for="password" jhiTranslate="login.form.password">Password</label>-->
+<!--<input type="password" class="form-control" name="password" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"-->
+<!--[(ngModel)]="password">-->
+<!--</div>-->
+<!--<div class="form-check">-->
+<!--<label class="form-check-label" for="rememberMe">-->
+<!--<input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" checked>-->
+<!--<span jhiTranslate="login.form.rememberme">Remember me</span>-->
+<!--</label>-->
+<!--</div>-->
+<!--<button type="submit" class="btn btn-primary" jhiTranslate="login.form.button">Sign in</button>-->
+<!--</form>-->
+<!--<p></p>-->
+<!--<div class="alert alert-warning">-->
+<!--<a class="alert-link" (click)="requestResetPassword()" jhiTranslate="login.password.forgot">Did you forget your password?</a>-->
+<!--</div>-->
+<!--<div class="alert alert-warning">-->
+<!--<span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>-->
+<!--<a class="alert-link" (click)="register()" jhiTranslate="global.messages.info.register.link">Register a new account</a>-->
+<!--</div>-->
+<!--</mat-dialog-content>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<ngx-spinner
+    bdColor = "rgba(63,81,181,0.8)" size = "large" color = "#fff" type = "ball-clip-rotate-multiple">
+</ngx-spinner>
+
+
+<div class="scroll-off">
+    <div class="modal-header">
+        <span class="logo-img2">
+        <h4 class="title-login" jhiTranslate="login.title">Sign in</h4></span>
+        <!--<a class="close-button"><mat-icon (click)="closeDialog()">close</mat-icon></a>-->
+    </div>
+    <!--<mat-divider></mat-divider>-->
+
+
+
+    <!--<div class="alert alert-danger animated fadeIn" *ngIf="authenticationError" jhiTranslate="login.messages.error.username">-->
+    <!--<strong>Failed to sign in!</strong> Please check your credentials and try again.-->
+    <!--</div>-->
+    <div class="padding-20 scroll-off">
+        <div class="alert alert-danger alert-font scroll-off" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
+            <strong>Failed to sign in!</strong> Please check your credentials and try again.
+        </div>
+        <mat-dialog-content class="scroll-off row justify-content-center" >
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Usuário" [(ngModel)]="username">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Senha" [(ngModel)]="password" type="password">
+            </mat-form-field>
+
+        </mat-dialog-content>
+        <div class="row  padding-10">
+            <div class="col-md-6">
+                <!--<mat-radio-button class="full-width margin-top-login" type="radio" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" >-->
+                    <mat-checkbox class="full-width margin-top-login" type="checkbox"  [(ngModel)]="rememberMe"></mat-checkbox>
+                    <span jhiTranslate="login.form.rememberme">Remember me</span>
+                <!--</mat-radio-button>-->
+            </div>
+            <div class="col-md-6">
+                <div class="alert alert-warning alert-link-senha text-center">
+                    <a class="alert-link " (click)="requestResetPassword()" jhiTranslate="login.password.forgot">Did you forget your password?</a>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12 ">
+            <!--<mat-checkbox [(ngModel)]="rememberMe">Lembrar-me</mat-checkbox>-->
+                <mat-dialog-actions>
+                    <button mat-raised-button style="background:#3F51B5; color:#ffffff;" class="full-width-button-login" (click)="login()">Entrar</button>
+                </mat-dialog-actions>
+            </div>
+        </div>
+    </div>
+
+</div>
