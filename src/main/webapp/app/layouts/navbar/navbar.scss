@@ -86,3 +86,33 @@ Sidenav Material
     left: 0;
     right: 0;
   }
+
+  .bem-vindo{
+    color: #FF4081;
+    font-size: 16px;
+  }
+
+  .icon-bem-vindo{
+  	    color: #82C761;
+
+  	}
+
+  .bem-vindo-title{
+    color: #fff;
+  }
+
+  .fa-color{
+    color: #82C761;
+  }
+
+
+@media screen and (max-device-width: 640px) {
+	.bem-vindo,
+	.icon-bem-vindo,
+	.bem-vindo-title  {
+		display:none;
+	}
+
+
+}
+

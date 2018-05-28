@@ -4,17 +4,62 @@
     </span>
     <router-outlet name="navbar"></router-outlet>
 </div>
-<mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
-        <mat-selection-list role="option">
-            <a mat-menu-item routerLink="sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()"><mat-list-option>Catálogo de Sistemas</mat-list-option></a>
-            <!-- <mat-menu yPosition="below" #menu="matMenu">
-                <a mat-menu-item routerLink="sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">Sistema</a>
-                <a mat-menu-item routerLink="criticidade" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">Criticidade</a>
-            </mat-menu> -->
-            <mat-list-option>Métricas</mat-list-option>
-            <mat-list-option>Configurações</mat-list-option>
-        </mat-selection-list>
+<mat-sidenav-container [ngSwitch]="isAuthenticated()">
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" (opened)="panelOpenState = false">
+        <mat-list class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+ 					<span>
+ 						<i class="fa fa-home" aria-hidden="true"></i>
+ 						<span jhiTranslate="global.menu.home">Home</span>
+ 					</span>
+            </a>
+        </mat-list>
+        <mat-list>
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+ 					<span>
+ 						<i class="fa fa-th-list" aria-hidden="true"></i>
+ 						<span jhiTranslate="global.menu.entities.main">
+ 							Entities
+ 						</span>
+ 					</span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+
+                </ul>
+            </li>
+        </mat-list>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header >
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-selection-list role="option" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <mat-list-option>test1</mat-list-option>
+                    <mat-list-option>test2</mat-list-option>
+                    <mat-list-option>test3</mat-list-option>
+                    <mat-list-option>test4</mat-list-option>
+                </mat-selection-list>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Self aware panel
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="option">
+                    <mat-list-option>test1</mat-list-option>
+                    <mat-list-option>test2</mat-list-option>
+                    <mat-list-option>test3</mat-list-option>
+                    <mat-list-option>test4</mat-list-option>
+                </mat-selection-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
     </mat-sidenav>
 
     <mat-sidenav-content>

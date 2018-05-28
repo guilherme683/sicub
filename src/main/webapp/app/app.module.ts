@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import {
@@ -68,6 +69,7 @@ import {
         MatDialogModule,
         MatInputModule,
         MatRadioModule,
+        MatExpansionModule,
         NgxSpinnerModule,
     ],
     declarations: [

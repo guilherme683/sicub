@@ -28,8 +28,8 @@
 <!--</span>-->
 <!--</span>-->
 <!--</a>-->
-<!--<ul class="dropdown-menu" ngbDropdownMenu>-->
-<!--&lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;-->
+<!--<ul class="dropdown-menu" ngbDropdownMenu>
+&lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;-->
 <!--</ul>-->
 <!--</li>-->
 <!--<li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
@@ -147,15 +147,33 @@
 <!--</div>-->
 <!--</nav>-->
 
-
-
-
-
         <!--<button *ngSwitchCase="false" mat-icon-button [mat-menu-trigger-for]="menu">-->
             <!--<i class="far fa-user fa-2x fa-color position-icon animated infinite bounce" aria-hidden="true"></i>-->
         <!--</button>-->
 
+<!--<nav>-->
+    <!--<mat-toolbar color="primary" [ngSwitch]="isAuthenticated()">-->
+        <!--<div class="jh-logo-container float-left">-->
+            <!--<a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">-->
+                <!--<span class="logo-img"></span>-->
+                <!--<span class="navbar-title">SICUB</span>-->
+                <!--<span class="navbar-version">{{version}}</span>-->
+            <!--</a>-->
+        <!--</div>-->
 
+        <!--<button *ngSwitchCase="false" mat-icon-button [mat-menu-trigger-for]="menu">-->
+        <!--<i class="far fa-user fa-2x fa-color position-icon animated infinite bounce" aria-hidden="true"></i>-->
+        <!--</button>-->
+        <!--<button *ngSwitchCase="true" mat-icon-button [mat-menu-trigger-for]="menu">-->
+            <!--<i class="far fa-user fa-2x fa-color position-icon animated" aria-hidden="true"></i>-->
+        <!--</button>-->
+    <!--</mat-toolbar>-->
+    <!--<mat-menu x-position="before" #menu="matMenu" [ngSwitch]="isAuthenticated()">-->
+        <!--<button *ngSwitchCase="false" mat-menu-item (click)="login()">Entrar</button>-->
+        <!--<button *ngSwitchCase="true" mat-menu-item (click)="logout()">Sair</button>-->
+        <!--<button mat-menu-item routerLink="register" (click)="collapseNavbar()">Registrar</button>-->
+    <!--</mat-menu>-->
+<!--</nav>-->
 
 <nav>
     <mat-toolbar color="primary" [ngSwitch]="isAuthenticated()">
@@ -165,13 +183,18 @@
                 <span class="navbar-title">SICUB</span>
                 <span class="navbar-version">{{version}}</span>
             </a>
+            <div class="bem-vindo">
+            <div class="float-right animated fadeInUp" *ngSwitchCase="true">
+                <!--<span class="icon-bem-vindo"><i class="fas fa-user" arial-hidden="true"></span>-->
+                <span class="bem-vindo-title" *ngIf="account" jhiTranslate="home.logged.message" translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+            </div>
+            </div>
         </div>
-
         <button *ngSwitchCase="false" mat-icon-button [mat-menu-trigger-for]="menu">
-        <i class="far fa-user fa-2x fa-color position-icon animated infinite bounce" aria-hidden="true"></i>
+            <i class="fas fa-user fa-2x  position-icon animated infinite bounce" aria-hidden="true"></i>
         </button>
         <button *ngSwitchCase="true" mat-icon-button [mat-menu-trigger-for]="menu">
-            <i class="far fa-user fa-2x fa-color position-icon animated" aria-hidden="true"></i>
+            <i class="fas fa-user fa-2x fa-color position-icon animated" aria-hidden="true"></i>
         </button>
     </mat-toolbar>
     <mat-menu x-position="before" #menu="matMenu" [ngSwitch]="isAuthenticated()">

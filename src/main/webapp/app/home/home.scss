@@ -40,6 +40,13 @@ only screen and (                min-resolution: 2dppx) {
 
 }
 
+@media screen and (max-device-width: 640px) {
+
+	#visivel{
+	   display:inline;
+	}
+}
+
 
 /* Absolute Center Spinner
 .loading-indicator {

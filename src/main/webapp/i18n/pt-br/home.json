@@ -3,7 +3,7 @@
         "title": "SICUB",
         "subtitle": "Sistema de Controle de Usuários de Banco de Dados ",
         "logged": {
-            "message": "Você está logado como \"{{username}}\"."
+            "message": "Bem vindo, {{username}}!"
         },
         "question": "Em caso de dúvida sobre o JHipster:",
         "link": {

@@ -63,7 +63,8 @@ body {
   .burguer-icon {
     position: absolute;
     margin: 10px;
-    font-size: 40px;
+    font-size: 30px;
+    margin-top: 18px;
   }
 
   .mat-pseudo-checkbox {
@@ -108,3 +109,11 @@ body {
     margin-right: -1rem;
 }
 
+.bem-vindo {
+    margin-top: 0.7rem;
+    font-size: 14px;
+}
+
+#visivel{
+    display:none;
+}

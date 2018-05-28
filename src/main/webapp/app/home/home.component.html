@@ -1,4 +1,4 @@
-<div class="row" [ngSwitch]="isAuthenticated()">
+<div class="row" [ngSwitch]="isAuthenticated()" id="visivel">
     <div class="col-md-12">
         <div class="alert alert-success animated fadeInRight" *ngSwitchCase="true">
             <span *ngIf="account" jhiTranslate="home.logged.message" translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
@@ -22,7 +22,6 @@
         <!--</div>-->
         <!--</div>-->
 </div>
-
 
 
 
