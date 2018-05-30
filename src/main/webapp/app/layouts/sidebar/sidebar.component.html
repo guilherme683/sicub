@@ -1,20 +1,21 @@
 <div>
     <span>
-        <mat-icon (click)="sidenav.toggle()" class="burguer-icon branco-gelo" *ngIf="isAuthenticated()">menu</mat-icon>
+        <mat-icon (click)="sidenav.toggle()" class="burguer-icon branco-gelo animated flash" *ngIf="isAuthenticated()">menu</mat-icon>
     </span>
     <router-outlet name="navbar"></router-outlet>
 </div>
-<mat-sidenav-container [ngSwitch]="isAuthenticated()">
-    <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" (opened)="panelOpenState = false">
-        <mat-list class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+        <mat-selection-list role="option">
+       <!--  <mat-list class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
             <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
  					<span>
  						<i class="fa fa-home" aria-hidden="true"></i>
  						<span jhiTranslate="global.menu.home">Home</span>
  					</span>
             </a>
-        </mat-list>
-        <mat-list>
+        </mat-list> -->
+        <!-- <mat-list>
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
  					<span>
@@ -28,49 +29,87 @@
 
                 </ul>
             </li>
-        </mat-list>
-        <mat-accordion>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header >
-                    <mat-panel-title>
-                        Personal data
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
+        </mat-list> -->
+        <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item routerLink="user-management" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        (click)="sidenav.close()">
+        <i class="fas fa-user-cog fa-icon-x"></i>
+        <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+        <mat-list-option>Usuários</mat-list-option>
+    </span>
+    <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item 
+    routerLink="jhi-metrics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+    (click)="sidenav.close()">
+    <i class="fas fa-tachometer-alt fa-icon-x"></i>
+    <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+    <mat-list-option>Métricas</mat-list-option>
+</span>
+<span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item 
+routerLink="jhi-configuration" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+(click)="sidenav.close()" class="hover-link-side">
+<i class="fas fa-cog fa-icon-x"></i>
+<span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+<mat-list-option>Configurações</mat-list-option>
+</span>
+<span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item 
+routerLink="audits" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+(click)="sidenav.close()">
+<i class="fas fa-users fa-icon-x" aria-hidden="true"></i>
+<span jhiTranslate="global.menu.admin.audits">Audits</span>
+<mat-list-option>Auditorias</mat-list-option>
+</span>
+<span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item 
+routerLink="logs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+(click)="sidenav.close()">
+<i class="fas fa-desktop fa-icon-x" aria-hidden="true"></i>
+<span jhiTranslate="global.menu.admin.logs">Logs</span>
+<mat-list-option>Logs</mat-list-option>
+</span>
 
-                <mat-selection-list role="option" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <mat-list-option>test1</mat-list-option>
-                    <mat-list-option>test2</mat-list-option>
-                    <mat-list-option>test3</mat-list-option>
-                    <mat-list-option>test4</mat-list-option>
-                </mat-selection-list>
-            </mat-expansion-panel>
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Self aware panel
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <mat-selection-list role="option">
-                    <mat-list-option>test1</mat-list-option>
-                    <mat-list-option>test2</mat-list-option>
-                    <mat-list-option>test3</mat-list-option>
-                    <mat-list-option>test4</mat-list-option>
-                </mat-selection-list>
-            </mat-expansion-panel>
-        </mat-accordion>
 
-    </mat-sidenav>
+</mat-selection-list>
 
-    <mat-sidenav-content>
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header >
+            <mat-panel-title>
+                Personal data
+            </mat-panel-title>
+        </mat-expansion-panel-header>
 
-        <div class="container-fluid">
-            <div class="card jh-card">
-                <router-outlet></router-outlet>
-                <router-outlet name="popup"></router-outlet>
-            </div>
-            <jhi-footer></jhi-footer>
+        <mat-selection-list role="option" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <mat-list-option>test1</mat-list-option>
+            <mat-list-option>test2</mat-list-option>
+            <mat-list-option>test3</mat-list-option>
+            <mat-list-option>test4</mat-list-option>
+        </mat-selection-list>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Self aware panel
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-selection-list role="option">
+        <mat-list-option>test1</mat-list-option>
+        <mat-list-option>test2</mat-list-option>
+        <mat-list-option>test3</mat-list-option>
+        <mat-list-option>test4</mat-list-option>
+    </mat-selection-list>
+</mat-expansion-panel>
+</mat-accordion>
+
+</mat-sidenav>
+
+<mat-sidenav-content>
+
+    <div class="container-fluid">
+        <div class="card jh-card">
+            <router-outlet></router-outlet>
+            <router-outlet name="popup"></router-outlet>
         </div>
+        <jhi-footer></jhi-footer>
+    </div>
 
-    </mat-sidenav-content>
+</mat-sidenav-content>
 </mat-sidenav-container>

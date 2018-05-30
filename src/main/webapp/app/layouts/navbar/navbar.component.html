@@ -178,7 +178,7 @@
 <nav>
     <mat-toolbar color="primary" [ngSwitch]="isAuthenticated()">
         <div class="jh-logo-container float-left">
-            <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
+            <a class="navbar-brand logo float-left" routerLink="/" ((click)="sidenav.close()">
                 <span class="logo-img"></span>
                 <span class="navbar-title">SICUB</span>
                 <span class="navbar-version">{{version}}</span>
@@ -191,7 +191,7 @@
             </div>
         </div>
         <button *ngSwitchCase="false" mat-icon-button [mat-menu-trigger-for]="menu">
-            <i class="fas fa-user fa-2x  position-icon animated infinite bounce" aria-hidden="true"></i>
+            <i class="far fa-user fa-2x  position-icon animated infinite bounce" aria-hidden="true"></i>
         </button>
         <button *ngSwitchCase="true" mat-icon-button [mat-menu-trigger-for]="menu">
             <i class="fas fa-user fa-2x fa-color position-icon animated" aria-hidden="true"></i>
