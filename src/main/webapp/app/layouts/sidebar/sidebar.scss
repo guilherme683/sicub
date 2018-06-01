@@ -44,8 +44,20 @@
 }
 
 .mat-menu-item{
-  color: #919D9E;
+  color: #666666;
 }
 .mat-menu-item:hover{
   color: #3F51B5;
+}
+
+.fa-api{
+   margin-left: 0.2rem;
+}
+
+.mat-expansion-panel-header {
+    margin-left: -0.5rem;
+}
+
+.mat-panel-title{
+    background: #000;
 }
