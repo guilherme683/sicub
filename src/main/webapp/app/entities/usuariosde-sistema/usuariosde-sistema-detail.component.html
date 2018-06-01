@@ -1,0 +1,72 @@
+
+<div *ngIf="usuariosdeSistema">
+    <h2><span jhiTranslate="sicubApp.usuariosdeSistema.detail.title">Usuariosde Sistema</span> {{usuariosdeSistema.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.nome">Nome</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.senha">Senha</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.senha}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.sgdb">Sgdb</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sicubApp.Sgdb.' + usuariosdeSistema.sgdb}}">{{usuariosdeSistema.sgdb}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.base">Base</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.base}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.esquema">Esquema</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.esquema}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.descricaoBase">Descricao Base</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.descricaoBase}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.solicitante">Solicitante</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.solicitante}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.ramal">Ramal</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.ramal}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.email">Email</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.area">Area</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sicubApp.Area.' + usuariosdeSistema.area}}">{{usuariosdeSistema.area}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.dataCriacao">Data Criacao</span></dt>
+        <dd>
+            <span>{{usuariosdeSistema.dataCriacao | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.usuariosdeSistema.servidores">Servidores</span></dt>
+        <dd>
+            <span *ngFor="let servidores of usuariosdeSistema.servidores; let last = last">
+                <a [routerLink]="['/servidores', servidores?.id ]">{{servidores.nome}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'usuariosde-sistema/'+ usuariosdeSistema.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

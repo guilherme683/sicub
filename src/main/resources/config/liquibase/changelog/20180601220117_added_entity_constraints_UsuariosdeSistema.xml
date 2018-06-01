@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity UsuariosdeSistema.
+    -->
+    <changeSet id="20180601220117-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="usuariosde_sistemas_id"
+                                 baseTableName="usuariosde_sistema_servidores"
+                                 constraintName="fk_usuariosde_sistema_servidores_usuariosde_sistemas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuariosde_sistema"/>
+        <addForeignKeyConstraint baseColumnNames="servidores_id"
+                                 baseTableName="usuariosde_sistema_servidores"
+                                 constraintName="fk_usuariosde_sistema_servidores_servidores_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="servidores"/>
+        
+    </changeSet>
+</databaseChangeLog>

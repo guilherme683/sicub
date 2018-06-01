@@ -1,0 +1,34 @@
+
+<div *ngIf="scripts">
+    <h2><span jhiTranslate="sicubApp.scripts.detail.title">Scripts</span> {{scripts.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="sicubApp.scripts.acao">Acao</span></dt>
+        <dd>
+            <span>{{scripts.acao}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.scripts.comando">Comando</span></dt>
+        <dd>
+            <span>{{scripts.comando}}</span>
+        </dd>
+        <dt><span jhiTranslate="sicubApp.scripts.sgdb">Sgdb</span></dt>
+        <dd>
+            <span jhiTranslate="{{'sicubApp.Sgdb.' + scripts.sgdb}}">{{scripts.sgdb}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'scripts/'+ scripts.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

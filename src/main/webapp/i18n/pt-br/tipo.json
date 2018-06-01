@@ -1,0 +1,11 @@
+{
+    "sicubApp": {
+        "Tipo" : {
+            "null": "",
+            "HOMOLOGACAO": "HOMOLOGACAO",
+            "PRODUCAO": "PRODUCAO",
+            "REPLICACAO": "REPLICACAO",
+            "BACKUP": "BACKUP"
+        }
+    }
+}

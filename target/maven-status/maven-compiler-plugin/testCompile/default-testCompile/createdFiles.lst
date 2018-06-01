@@ -19,7 +19,10 @@ com/cidades/gov/sicub/security/DomainUserDetailsServiceIntTest.class
 com/cidades/gov/sicub/security/jwt/JWTFilterTest.class
 com/cidades/gov/sicub/security/jwt/TokenProviderTest.class
 com/cidades/gov/sicub/web/rest/ProfileInfoResourceIntTest.class
+com/cidades/gov/sicub/web/rest/ScriptsResourceIntTest.class
 com/cidades/gov/sicub/repository/CustomAuditEventRepositoryIntTest.class
 com/cidades/gov/sicub/web/rest/util/PaginationUtilUnitTest.class
+com/cidades/gov/sicub/web/rest/ServidoresResourceIntTest.class
 com/cidades/gov/sicub/web/rest/UserJWTControllerIntTest.class
 com/cidades/gov/sicub/config/WebConfigurerTest$MockServletRegistration.class
+com/cidades/gov/sicub/web/rest/UsuariosdeSistemaResourceIntTest.class

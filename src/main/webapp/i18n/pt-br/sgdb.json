@@ -1,0 +1,12 @@
+{
+    "sicubApp": {
+        "Sgdb" : {
+            "null": "",
+            "MYSQL": "MYSQL",
+            "MARIADB": "MARIADB",
+            "ORACLE": "ORACLE",
+            "POSTGRESQL": "POSTGRESQL",
+            "SQLSERVER": "SQLSERVER"
+        }
+    }
+}

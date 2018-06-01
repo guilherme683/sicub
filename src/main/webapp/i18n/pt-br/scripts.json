@@ -1,0 +1,25 @@
+
+{
+    "sicubApp": {
+        "scripts" : {
+            "home": {
+                "title": "Scripts",
+                "createLabel": "Criar novo Scripts",
+                "createOrEditLabel": "Criar ou editar Scripts",
+                "search": "Pesquisar por Scripts"
+            },
+            "created": "Um novo Scripts foi criado com o identificador {{ param }}",
+            "updated": "Um Scripts foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Scripts foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Scripts {{ id }}?"
+            },
+            "detail": {
+                "title": "Scripts"
+            },
+            "acao": "Acao",
+            "comando": "Comando",
+            "sgdb": "Sgdb"
+        }
+    }
+}
