@@ -1,0 +1,26 @@
+
+{
+    "sicubApp": {
+        "servidores" : {
+            "home": {
+                "title": "Servidores",
+                "createLabel": "Criar novo Servidores",
+                "createOrEditLabel": "Criar ou editar Servidores",
+                "search": "Pesquisar por Servidores"
+            },
+            "created": "Um novo Servidores foi criado com o identificador {{ param }}",
+            "updated": "Um Servidores foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Servidores foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Servidores {{ id }}?"
+            },
+            "detail": {
+                "title": "Servidores"
+            },
+            "nome": "Nome",
+            "sgdb": "Sgdb",
+            "tipo": "Tipo",
+            "nome": "Nome"
+        }
+    }
+}

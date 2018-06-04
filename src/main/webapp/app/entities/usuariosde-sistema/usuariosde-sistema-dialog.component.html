@@ -1,0 +1,165 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUsuariosdeSistemaLabel" jhiTranslate="sicubApp.usuariosdeSistema.home.createOrEditLabel">Create or edit a Usuariosde Sistema</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!usuariosdeSistema.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="usuariosdeSistema.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                [(ngModel)]="usuariosdeSistema.nome" required/>
+            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.senha" for="field_senha">Senha</label>
+            <input type="text" class="form-control" name="senha" id="field_senha"
+                [(ngModel)]="usuariosdeSistema.senha" required/>
+            <div [hidden]="!(editForm.controls.senha?.dirty && editForm.controls.senha?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.senha?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.sgdb" for="field_sgdb">Sgdb</label>
+            <select class="form-control" name="sgdb" [(ngModel)]="usuariosdeSistema.sgdb" id="field_sgdb"  required>
+                <option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</option>
+                <option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</option>
+                <option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</option>
+                <option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</option>
+                <option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.sgdb?.dirty && editForm.controls.sgdb?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sgdb?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.base" for="field_base">Base</label>
+            <input type="text" class="form-control" name="base" id="field_base"
+                [(ngModel)]="usuariosdeSistema.base" required/>
+            <div [hidden]="!(editForm.controls.base?.dirty && editForm.controls.base?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.base?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.esquema" for="field_esquema">Esquema</label>
+            <input type="text" class="form-control" name="esquema" id="field_esquema"
+                [(ngModel)]="usuariosdeSistema.esquema" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.descricaoBase" for="field_descricaoBase">Descricao Base</label>
+            <input type="text" class="form-control" name="descricaoBase" id="field_descricaoBase"
+                [(ngModel)]="usuariosdeSistema.descricaoBase" required/>
+            <div [hidden]="!(editForm.controls.descricaoBase?.dirty && editForm.controls.descricaoBase?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.descricaoBase?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.solicitante" for="field_solicitante">Solicitante</label>
+            <input type="text" class="form-control" name="solicitante" id="field_solicitante"
+                [(ngModel)]="usuariosdeSistema.solicitante" required/>
+            <div [hidden]="!(editForm.controls.solicitante?.dirty && editForm.controls.solicitante?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.solicitante?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.ramal" for="field_ramal">Ramal</label>
+            <input type="number" class="form-control" name="ramal" id="field_ramal"
+                [(ngModel)]="usuariosdeSistema.ramal" required/>
+            <div [hidden]="!(editForm.controls.ramal?.dirty && editForm.controls.ramal?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ramal?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.ramal?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="usuariosdeSistema.email" required/>
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.area" for="field_area">Area</label>
+            <select class="form-control" name="area" [(ngModel)]="usuariosdeSistema.area" id="field_area" >
+                <option value="SNH">{{'sicubApp.Area.SNH' | translate}}</option>
+                <option value="SNSA">{{'sicubApp.Area.SNSA' | translate}}</option>
+                <option value="SEMOB">{{'sicubApp.Area.SEMOB' | translate}}</option>
+                <option value="SNAPU">{{'sicubApp.Area.SNAPU' | translate}}</option>
+                <option value="CGLOG">{{'sicubApp.Area.CGLOG' | translate}}</option>
+                <option value="CGMI">{{'sicubApp.Area.CGMI' | translate}}</option>
+                <option value="DENATRAN">{{'sicubApp.Area.DENATRAN' | translate}}</option>
+                <option value="ASPAR">{{'sicubApp.Area.ASPAR' | translate}}</option>
+                <option value="CONJUR">{{'sicubApp.Area.CONJUR' | translate}}</option>
+                <option value="PROTOCOLO">{{'sicubApp.Area.PROTOCOLO' | translate}}</option>
+                <option value="PATRIMONIO">{{'sicubApp.Area.PATRIMONIO' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.dataCriacao" for="field_dataCriacao">Data Criacao</label>
+            <div class="input-group">
+                <input id="field_dataCriacao" type="text" class="form-control" name="dataCriacao" ngbDatepicker  #dataCriacaoDp="ngbDatepicker" [(ngModel)]="usuariosdeSistema.dataCriacao"
+                required/>
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataCriacaoDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.dataCriacao?.dirty && editForm.controls.dataCriacao?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dataCriacao?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="sicubApp.usuariosdeSistema.servidores" for="field_servidores">Servidores</label>
+            <select class="form-control" id="field_servidores" multiple name="servidores" [(ngModel)]="usuariosdeSistema.servidores">
+                <option [ngValue]="getSelected(usuariosdeSistema.servidores, servidoresOption)" *ngFor="let servidoresOption of servidores; trackBy: trackServidoresById">{{servidoresOption.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

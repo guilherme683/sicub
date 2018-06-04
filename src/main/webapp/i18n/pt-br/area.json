@@ -1,0 +1,18 @@
+{
+    "sicubApp": {
+        "Area" : {
+            "null": "",
+            "SNH": "SNH",
+            "SNSA": "SNSA",
+            "SEMOB": "SEMOB",
+            "SNAPU": "SNAPU",
+            "CGLOG": "CGLOG",
+            "CGMI": "CGMI",
+            "DENATRAN": "DENATRAN",
+            "ASPAR": "ASPAR",
+            "CONJUR": "CONJUR",
+            "PROTOCOLO": "PROTOCOLO",
+            "PATRIMONIO": "PATRIMONIO"
+        }
+    }
+}

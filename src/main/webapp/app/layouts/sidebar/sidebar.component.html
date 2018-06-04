@@ -74,18 +74,35 @@
 
         </mat-selection-list>
 
-        <mat-accordion *jhiHasAnyAuthority="'ROLE_ADMIN'">
-            <mat-expansion-panel ngbDropdown>
+        <mat-accordion>
+            <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                        <mat-panel-title ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
-                            <i class="fas fa-book fa-icon-x fa-fw" aria-hidden="true"></i>
+                        <mat-panel-title href="javascript:void(0);" id="entity-menu">
+                            <i class="fas fa-table fa-icon-x fa-fw" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.main">
                                 Entities
                             </span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <mat-selection-list ngbDropdownMenu>
-                        <mat-list-option></mat-list-option>
+                    <mat-selection-list>
+                        <mat-list-option>
+                            <span  routerLink="scripts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()" (closed)="panelOpenState = false">
+                                <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.scripts">Scripts</span>
+                            </span>
+                        </mat-list-option>
+                        <mat-list-option>
+                            <span  routerLink="usuariosde-sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">
+                                <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.usuariosdeSistema">Usuarios de Sistema</span>
+                            </span>
+                        </mat-list-option>
+                        <mat-list-option>
+                            <span  routerLink="servidores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">
+                                <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.servidores">Scripts</span>
+                            </span>
+                        </mat-list-option>
                     </mat-selection-list>
             </mat-expansion-panel>
             <!--<mat-expansion-panel (opened)="panelOpenState = true"-->

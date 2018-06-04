@@ -29,6 +29,24 @@
 <!--</span>-->
 <!--</a>-->
 <!--<ul class="dropdown-menu" ngbDropdownMenu>
+<li>
+                        <a class="dropdown-item" routerLink="scripts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.scripts">Scripts</span>
+                        </a>
+                    </li>
+<li>
+                        <a class="dropdown-item" routerLink="usuariosde-sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.usuariosdeSistema">Usuariosde Sistema</span>
+                        </a>
+                    </li>
+<li>
+                        <a class="dropdown-item" routerLink="servidores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.servidores">Servidores</span>
+                        </a>
+                    </li>
 &lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;-->
 <!--</ul>-->
 <!--</li>-->
