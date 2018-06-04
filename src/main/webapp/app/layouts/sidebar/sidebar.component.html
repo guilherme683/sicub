@@ -75,32 +75,33 @@
         </mat-selection-list>
 
         <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel #menuentidades>
                     <mat-expansion-panel-header>
-                        <mat-panel-title href="javascript:void(0);" id="entity-menu">
+                        <mat-panel-title>
                             <i class="fas fa-table fa-icon-x fa-fw" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.main">
+                            <span jhiTranslate="global.menu.entities.main" class="entidades">
                                 Entities
                             </span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list>
                         <mat-list-option>
-                            <span  routerLink="scripts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()" (closed)="panelOpenState = false">
+                            <span  routerLink="scripts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
                                 <span jhiTranslate="global.menu.entities.scripts">Scripts</span>
                             </span>
                         </mat-list-option>
-                        <mat-list-option>
-                            <span  routerLink="usuariosde-sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">
+                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <span  routerLink="usuariosde-sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
-                                <span jhiTranslate="global.menu.entities.usuariosdeSistema">Usuarios de Sistema</span>
+                               <!--  <span jhiTranslate="global.menu.entities.usuariosdeSistema">Usuarios de Sistema</span> -->
+                               <span>Usuarios de Sistema</span>
                             </span>
                         </mat-list-option>
-                        <mat-list-option>
-                            <span  routerLink="servidores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="sidenav.close()">
+                        <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <span  routerLink="servidores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
-                                <span jhiTranslate="global.menu.entities.servidores">Scripts</span>
+                                <span jhiTranslate="global.menu.entities.servidores">Servidores</span>
                             </span>
                         </mat-list-option>
                     </mat-selection-list>

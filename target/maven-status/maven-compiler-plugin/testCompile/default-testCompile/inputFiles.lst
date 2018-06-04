@@ -3,11 +3,14 @@
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/security/jwt/TokenProviderTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/config/elasticsearch/IndexReinitializer.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/util/PaginationUtilUnitTest.java
+/home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/ServidoresResourceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/service/MailServiceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/UserResourceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/security/SecurityUtilsUnitTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/AuditResourceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/UserJWTControllerIntTest.java
+/home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/ScriptsResourceIntTest.java
+/home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/UsuariosdeSistemaResourceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/errors/ExceptionTranslatorIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/web/rest/LogsResourceIntTest.java
 /home/guilhermeoliveira/sistema-sicub/src/test/java/com/cidades/gov/sicub/config/WebConfigurerTest.java
