@@ -9,7 +9,10 @@ MatCheckboxModule,
 MatCardModule,
 MatRadioModule,
 MatDividerModule,
+MatFormFieldModule,
 MatInputModule} from '@angular/material';
+
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -21,6 +24,8 @@ MatInputModule} from '@angular/material';
     MatCardModule,
     MatRadioModule,
     MatDividerModule,
+    MatFormFieldModule,
+    MatChipsModule,
     MatInputModule,
   ],
   exports: [
@@ -32,6 +37,8 @@ MatInputModule} from '@angular/material';
     MatRadioModule,
     MatDividerModule,
     MatCheckboxModule,
+    MatFormFieldModule,
+    MatChipsModule,
     MatInputModule,
   ]
 })

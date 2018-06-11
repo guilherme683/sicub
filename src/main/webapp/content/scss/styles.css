@@ -113,3 +113,7 @@ body {
     display:none;
 }
 
+
+.mat-checkbox{
+    margin-right: 0.3rem;
+}
