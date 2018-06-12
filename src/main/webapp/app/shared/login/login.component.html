@@ -67,12 +67,16 @@
             <strong>Failed to sign in!</strong> Please check your credentials and try again.
         </div>
         <mat-dialog-content class="scroll-off row justify-content-center" >
-            <mat-form-field class="full-width">
+            <mat-form-field  appearance="outline" class="full-width">
+                <mat-label style="color:#808b96; font-size: 20px;"><mat-icon matSuffix style="color:#808b96  ;"><i class="fas fa-user"></i></mat-icon></mat-label>
                 <input matInput placeholder="Usuário" [(ngModel)]="username">
+                <!--<mat-icon matSuffix style="color:#808b96; font-size: 14px;"><i class="fas fa-user"></i></mat-icon>-->
             </mat-form-field>
 
-            <mat-form-field class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label style="color:#808b96; font-size: 20px;"><mat-icon matSuffix style="color:#808b96  ;"><i class="fas fa-lock"></i></mat-icon></mat-label>
                 <input matInput placeholder="Senha" [(ngModel)]="password" type="password">
+                <!--<mat-icon matSuffix style="color:#808b96; font-size:14px;"><i class="fas fa-lock"></i></mat-icon>-->
             </mat-form-field>
 
         </mat-dialog-content>

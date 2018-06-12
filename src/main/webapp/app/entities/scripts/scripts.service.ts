@@ -1,6 +1,8 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { Scripts } from './scripts.model';
@@ -18,25 +20,25 @@ export class ScriptsService {
 
     create(scripts: Scripts): Observable<EntityResponseType> {
         const copy = this.convert(scripts);
-        return this.http.post<Scripts>(this.resourceUrl, copy, { observe: 'response' })
-            .map((res: EntityResponseType) => this.convertResponse(res));
+        return this.http.post<Scripts>(this.resourceUrl, copy, { observe: 'response' }).pipe(
+            map((res: EntityResponseType) => this.convertResponse(res)));
     }
 
     update(scripts: Scripts): Observable<EntityResponseType> {
         const copy = this.convert(scripts);
-        return this.http.put<Scripts>(this.resourceUrl, copy, { observe: 'response' })
-            .map((res: EntityResponseType) => this.convertResponse(res));
+        return this.http.put<Scripts>(this.resourceUrl, copy, { observe: 'response' }).pipe(
+            map((res: EntityResponseType) => this.convertResponse(res)));
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http.get<Scripts>(`${this.resourceUrl}/${id}`, { observe: 'response'})
-            .map((res: EntityResponseType) => this.convertResponse(res));
+        return this.http.get<Scripts>(`${this.resourceUrl}/${id}`, { observe: 'response'}).pipe(
+            map((res: EntityResponseType) => this.convertResponse(res)));
     }
 
     query(req?: any): Observable<HttpResponse<Scripts[]>> {
         const options = createRequestOption(req);
-        return this.http.get<Scripts[]>(this.resourceUrl, { params: options, observe: 'response' })
-            .map((res: HttpResponse<Scripts[]>) => this.convertArrayResponse(res));
+        return this.http.get<Scripts[]>(this.resourceUrl, { params: options, observe: 'response' }).pipe(
+            map((res: HttpResponse<Scripts[]>) => this.convertArrayResponse(res)));
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
@@ -45,8 +47,8 @@ export class ScriptsService {
 
     search(req?: any): Observable<HttpResponse<Scripts[]>> {
         const options = createRequestOption(req);
-        return this.http.get<Scripts[]>(this.resourceSearchUrl, { params: options, observe: 'response' })
-            .map((res: HttpResponse<Scripts[]>) => this.convertArrayResponse(res));
+        return this.http.get<Scripts[]>(this.resourceSearchUrl, { params: options, observe: 'response' }).pipe(
+            map((res: HttpResponse<Scripts[]>) => this.convertArrayResponse(res)));
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {

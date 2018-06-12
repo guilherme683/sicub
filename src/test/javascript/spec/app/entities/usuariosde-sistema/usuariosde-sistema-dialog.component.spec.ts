@@ -1,8 +1,9 @@
+
+import {of as observableOf,  Observable } from 'rxjs';
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs/Observable';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { SicubTestModule } from '../../../test.module';
@@ -47,7 +48,7 @@ describe('Component Tests', () => {
                     fakeAsync(() => {
                         // GIVEN
                         const entity = new UsuariosdeSistema(123);
-                        spyOn(service, 'update').and.returnValue(Observable.of(new HttpResponse({body: entity})));
+                        spyOn(service, 'update').and.returnValue(observableOf(new HttpResponse({body: entity})));
                         comp.usuariosdeSistema = entity;
                         // WHEN
                         comp.save();
@@ -67,7 +68,7 @@ describe('Component Tests', () => {
                     fakeAsync(() => {
                         // GIVEN
                         const entity = new UsuariosdeSistema();
-                        spyOn(service, 'create').and.returnValue(Observable.of(new HttpResponse({body: entity})));
+                        spyOn(service, 'create').and.returnValue(observableOf(new HttpResponse({body: entity})));
                         comp.usuariosdeSistema = entity;
                         // WHEN
                         comp.save();
