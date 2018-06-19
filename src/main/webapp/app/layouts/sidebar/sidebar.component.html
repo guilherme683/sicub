@@ -25,41 +25,41 @@
             <span mat-menu-item routerLink="user-management" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-home fa-icon-x" aria-hidden="true"></i>
-                <span jhiTranslate="global.menu.home">Home</span>
+                <span jhiTranslate="global.menu.home" class="entidades">Home</span>
                 <mat-list-option>Início</mat-list-option>
             </span>
             <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item routerLink="user-management" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-user-cog fa-icon-x"></i>
-                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+                <span jhiTranslate="global.menu.admin.userManagement" class="entidades">User management</span>
                 <mat-list-option>Usuários</mat-list-option>
             </span>
             <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item
                   routerLink="jhi-metrics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-tachometer-alt fa-icon-x"></i>
-                <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+                <span jhiTranslate="global.menu.admin.metrics" class="entidades">Metrics</span>
                 <mat-list-option>Métricas</mat-list-option>
             </span>
             <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item
                   routerLink="jhi-configuration" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()" class="hover-link-side">
                 <i class="fas fa-cog fa-icon-x"></i>
-                <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+                <span jhiTranslate="global.menu.admin.configuration" class="entidades">Configuration</span>
                 <mat-list-option>Configurações</mat-list-option>
             </span>
             <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item
                   routerLink="audits" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-users fa-icon-x" aria-hidden="true"></i>
-                <span jhiTranslate="global.menu.admin.audits">Audits</span>
+                <span jhiTranslate="global.menu.admin.audits" class="entidades" >Audits</span>
                 <mat-list-option>Auditorias</mat-list-option>
             </span>
             <span *jhiHasAnyAuthority="'ROLE_ADMIN'" mat-menu-item
                   routerLink="logs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                   (click)="sidenav.close()">
                 <i class="fas fa-desktop fa-icon-x" aria-hidden="true"></i>
-                <span jhiTranslate="global.menu.admin.logs">Logs</span>
+                <span jhiTranslate="global.menu.admin.logs" class="entidades">Logs</span>
                 <mat-list-option>Logs</mat-list-option>
             </span>
             <div *ngIf="swaggerEnabled">
@@ -67,7 +67,7 @@
                       routerLink="docs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                       (click)="sidenav.close()">
                     <i class="fas fa-book fa-icon-x fa-api" aria-hidden="true"></i>
-                    <span jhiTranslate="global.menu.admin.apidocs">API</span>
+                    <span jhiTranslate="global.menu.admin.apidocs" class="entidades">API</span>
                     <mat-list-option>API</mat-list-option>
                 </span>
             </div>
@@ -88,20 +88,20 @@
                         <mat-list-option>
                             <span  routerLink="scripts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
-                                <span jhiTranslate="global.menu.entities.scripts">Scripts</span>
+                                <span jhiTranslate="global.menu.entities.scripts" class="entidades">Scripts</span>
                             </span>
                         </mat-list-option>
                         <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <span  routerLink="usuariosde-sistema" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
                                <!--  <span jhiTranslate="global.menu.entities.usuariosdeSistema">Usuarios de Sistema</span> -->
-                               <span>Usuarios de Sistema</span>
+                               <span class="entidades">Usuarios de Sistema</span>
                             </span>
                         </mat-list-option>
                         <mat-list-option *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <span  routerLink="servidores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuentidades.close();sidenav.close()">
                                 <i class="fas fa-arrow-circle-right" aria-hidden="true"></i>
-                                <span jhiTranslate="global.menu.entities.servidores">Servidores</span>
+                                <span jhiTranslate="global.menu.entities.servidores" class="entidades">Servidores</span>
                             </span>
                         </mat-list-option>
                     </mat-selection-list>

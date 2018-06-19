@@ -117,3 +117,24 @@ body {
 .mat-checkbox{
     margin-right: 0.3rem;
 }
+
+.mat-fab {
+    position: absolute !important;
+    right: 20px;
+    top: 10px;
+}
+
+  .full-width-search {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+
+@media screen and (max-width: 992px) {
+    .mat-fab {
+    	   right: 0px;
+           top: 0px;
+    	}
+ }
+
+
