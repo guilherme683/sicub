@@ -1,6 +1,6 @@
 import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
 import { Scripts } from './scripts.model';
 import { ScriptsService } from './scripts.service';
@@ -43,7 +43,7 @@ export class ScriptsPopupService {
     }
 
     scriptsModalRef(component: Component, scripts: Scripts): NgbModalRef {
-        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
+        const modalRef = this.modalService.open(component, { size: 'lg', windowClass: 'animated fadeInDown'});
         modalRef.componentInstance.scripts = scripts;
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });
@@ -52,6 +52,6 @@ export class ScriptsPopupService {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });
             this.ngbModalRef = null;
         });
-        return modalRef;
+        return modalRef;   
     }
 }

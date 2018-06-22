@@ -7,7 +7,7 @@
             <!--Create new Scripts-->
             <!--</span>-->
         <!--</button>-->
-        <button mat-fab color="primary" class="jh-create-entity create-scripts mat-fab-create animated fadeInRight" [routerLink]="['/', { outlets: { popup: ['scripts-new'] } }]">
+        <button mat-fab color="primary" class="jh-create-entity create-scripts mat-fab-create animated fadeInRight" [routerLink]="['/', { outlets: { popup: ['scripts-new'] } }]" (click)="openVerticallyCentered(content)">
             <i class="fas fa-plus"></i>
         </button>
     </h2>
