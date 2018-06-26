@@ -3,16 +3,16 @@
     <div class="modal-header">
         <h4 class="modal-title" id="myScriptsLabel" jhiTranslate="sicubApp.scripts.home.createOrEditLabel">Create or edit a Scripts</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+        (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!scripts.id">
             <label for="id" jhiTranslate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                   [(ngModel)]="scripts.id" readonly />
+            [(ngModel)]="scripts.id" readonly />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.scripts.acao" for="field_acao">Acao</label>
             <input type="text" class="form-control" name="acao" id="field_acao"
                 [(ngModel)]="scripts.acao" required minlength="10" maxlength="100"/>
@@ -30,50 +30,80 @@
                    This field cannot be longer than 100 characters.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sicubApp.scripts.comando" for="field_comando">Comando</label>
-            <input type="text" class="form-control" name="comando" id="field_comando"
-                [(ngModel)]="scripts.comando" required minlength="10" maxlength="255"/>
-            <div [hidden]="!(editForm.controls.comando?.dirty && editForm.controls.comando?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.comando?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.comando?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">
-                   This field is required to be at least 10 characters.
-                </small>
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.comando?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
-                   This field cannot be longer than 255 characters.
-                </small>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="sicubApp.scripts.sgdb" for="field_sgdb">Sgdb</label>
-            <select class="form-control" name="sgdb" [(ngModel)]="scripts.sgdb" id="field_sgdb"  required>
-                <option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</option>
-                <option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</option>
-                <option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</option>
-                <option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</option>
-                <option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</option>
-            </select>
-            <div [hidden]="!(editForm.controls.sgdb?.dirty && editForm.controls.sgdb?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.sgdb?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
-        </div>
+        </div> -->
 
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
-    </div>
+        <mat-form-field appearance="outline" class="full-width-form">
+              <mat-label jhiTranslate="sicubApp.scripts.acao" for="field_acao">Ação</mat-label>
+              <input matInput placeholder="Ex: Selecionar base" name="acao" id="field_acao" [(ngModel)]="scripts.acao" required minlength="10" maxlength="100"/>
+              <mat-error [hidden]="!editForm.controls.acao?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 10 caracteres.</mat-error>
+              <mat-error [hidden]="!editForm.controls.acao?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+
+
+     <!--  <div class="form-group">
+        <label class="form-control-label" jhiTranslate="sicubApp.scripts.comando" for="field_comando">Comando</label>
+        <input type="text" class="form-control" name="comando" id="field_comando"
+        [(ngModel)]="scripts.comando" required minlength="10" maxlength="255"/>
+        <div [hidden]="!(editForm.controls.comando?.dirty && editForm.controls.comando?.invalid)">
+            <small class="form-text text-danger"
+            [hidden]="!editForm.controls.comando?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
+        </small>
+        <small class="form-text text-danger"
+        [hidden]="!editForm.controls.comando?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">
+        This field is required to be at least 10 characters.
+    </small>
+    <small class="form-text text-danger"
+    [hidden]="!editForm.controls.comando?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+    This field cannot be longer than 255 characters.
+</small>
+</div>
+</div> -->
+    <mat-form-field appearance="outline" class="full-width-form">
+         <mat-label jhiTranslate="sicubApp.scripts.comando" for="field_comando">Comando</mat-label>
+         <input matInput placeholder="Ex: select * from pg_tables;" name="comando" id="field_comando" [(ngModel)]="scripts.comando" required minlength="10" maxlength="100"/>
+         <mat-error [hidden]="!editForm.controls.comando?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 10 caracteres.</mat-error>
+         <mat-error [hidden]="!editForm.controls.comando?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+    </mat-form-field>
+
+
+
+<!-- <div class="form-group">
+    <label class="form-control-label" jhiTranslate="sicubApp.scripts.sgdb" for="field_sgdb">Sgdb</label>
+    <select class="form-control" name="sgdb" [(ngModel)]="scripts.sgdb" id="field_sgdb"  required>
+        <option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</option>
+        <option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</option>
+        <option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</option>
+        <option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</option>
+        <option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</option>
+    </select>
+    <div [hidden]="!(editForm.controls.sgdb?.dirty && editForm.controls.sgdb?.invalid)">
+        <small class="form-text text-danger"
+        [hidden]="!editForm.controls.sgdb?.errors?.required" jhiTranslate="entity.validation.required">
+        This field is required.
+    </small>
+</div>
+</div> -->
+
+<mat-form-field appearance="outline" class="full-width-form">
+    <mat-label jhiTranslate="sicubApp.scripts.sgdb" for="field_sgdb">Sgdb</mat-label>
+    <mat-select placeholder="Select" name="sgdb" [(ngModel)]="scripts.sgdb" id="field_sgdb" required>
+        <mat-option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</mat-option>
+        <mat-option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</mat-option>
+        <mat-option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</mat-option>
+        <mat-option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</mat-option>
+        <mat-option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+</div>
+<div class="modal-footer">
+    <button mat-raised-button type="button" data-dismiss="modal" (click)="clear()">
+        <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+    </button>
+    <button mat-raised-button color='primary' type="submit" [disabled]="editForm.form.invalid || isSaving">
+        <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+    </button>
+</div>
 </form>
