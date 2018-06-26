@@ -129,17 +129,6 @@ body {
     margin-top: 1rem;
   }
 
-.full-width-form {
-    width: 100%;
-  }
-
-.cdk-overlay-container{
-  z-index: 1127;
-}
-
-.ng-invalid:not(form), .ng-valid[required], .ng-valid.required {
-  border-left: none !important;
-}
 
 @media screen and (max-width: 992px) {
     .mat-fab {
