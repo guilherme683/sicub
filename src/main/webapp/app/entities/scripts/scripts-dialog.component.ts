@@ -9,6 +9,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { Scripts } from './scripts.model';
 import { ScriptsPopupService } from './scripts-popup.service';
 import { ScriptsService } from './scripts.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-scripts-dialog',
@@ -22,6 +23,7 @@ export class ScriptsDialogComponent implements OnInit {
     constructor(
         public activeModal: NgbActiveModal,
         private scriptsService: ScriptsService,
+        private spinner: NgxSpinnerService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -35,13 +37,20 @@ export class ScriptsDialogComponent implements OnInit {
     }
 
     save() {
+        this.spinner.show();
         this.isSaving = true;
         if (this.scripts.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.scriptsService.update(this.scripts));
+            setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
         } else {
             this.subscribeToSaveResponse(
                 this.scriptsService.create(this.scripts));
+            setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
         }
     }
 
