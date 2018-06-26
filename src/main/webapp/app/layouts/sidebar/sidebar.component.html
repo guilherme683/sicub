@@ -5,7 +5,7 @@
     <router-outlet name="navbar"></router-outlet>
 </div>
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <mat-sidenav #sidenav mode="push" [(opened)]="opened">
         <mat-selection-list role="option">
             <!-- <mat-list>
                 <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
