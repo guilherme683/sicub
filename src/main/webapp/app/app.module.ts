@@ -77,7 +77,6 @@ import {
         positionClass: 'toast-top-right',
         preventDuplicates: true,
         progressBar: true,
-        closeButton: true,
         }),
     ],
     declarations: [
