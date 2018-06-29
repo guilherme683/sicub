@@ -52,6 +52,6 @@ export class ScriptsPopupService {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });
             this.ngbModalRef = null;
         });
-        return modalRef;   
+        return modalRef;
     }
 }
