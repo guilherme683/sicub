@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import {
     JhiMainComponent,
@@ -71,6 +72,13 @@ import {
         MatRadioModule,
         MatExpansionModule,
         NgxSpinnerModule,
+        ToastrModule.forRoot({
+        timeOut: 6000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+        progressBar: true,
+        closeButton: true,
+        }),
     ],
     declarations: [
         JhiMainComponent,

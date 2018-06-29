@@ -6,6 +6,7 @@ import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'jhi-login-modal',
@@ -19,6 +20,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
     credentials: any;
 
     constructor(
+        private toastr: ToastrService,
         private eventManager: JhiEventManager,
         private loginService: LoginService,
         private stateStorageService: StateStorageService,
@@ -73,12 +75,12 @@ export class JhiLoginModalComponent implements AfterViewInit {
             if (redirect) {
                 this.stateStorageService.storeUrl(null);
                 this.router.navigate([redirect]);
-
             }
              setTimeout(() => {
                 this.spinner.hide();
                 }, 3000);
             this.closeDialog();
+            this.toastr.success('Realizado com sucesso!', 'Login!');
         }).catch(() => {
             setTimeout(() => {
                 this.spinner.hide();

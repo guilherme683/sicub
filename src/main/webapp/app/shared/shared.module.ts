@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import {
     SicubSharedLibsModule,
@@ -24,6 +25,12 @@ import {
         SicubSharedCommonModule,
         MaterialModule,
         NgxSpinnerModule,
+        ToastrModule.forRoot({
+        timeOut: 6000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+        progressBar: true,
+        }),
     ],
     declarations: [
         JhiLoginModalComponent,

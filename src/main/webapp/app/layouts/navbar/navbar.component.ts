@@ -5,6 +5,7 @@ import { JhiLanguageService, JhiEventManager } from 'ng-jhipster';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService, JhiLoginModalComponent } from '../../shared';
+import { ToastrService } from 'ngx-toastr';
 
 import { VERSION } from '../../app.constants';
 import { MatDialogRef } from '@angular/material';
@@ -26,6 +27,7 @@ export class NavbarComponent implements OnInit {
     version: string;
 
     constructor(
+        private toastr: ToastrService,
         private loginService: LoginService,
         private principal: Principal,
         private loginModalService: LoginModalService,
@@ -80,6 +82,7 @@ export class NavbarComponent implements OnInit {
         this.collapseNavbar();
         this.loginService.logout();
         this.router.navigate(['']);
+        this.toastr.info('Usuário deslogado!', 'Logout!');
     }
 
     toggleNavbar() {
