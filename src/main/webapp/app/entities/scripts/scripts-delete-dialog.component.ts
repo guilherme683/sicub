@@ -7,6 +7,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { Scripts } from './scripts.model';
 import { ScriptsPopupService } from './scripts-popup.service';
 import { ScriptsService } from './scripts.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'jhi-scripts-delete-dialog',
@@ -17,6 +18,7 @@ export class ScriptsDeleteDialogComponent {
     scripts: Scripts;
 
     constructor(
+        private toastr: ToastrService,
         private scriptsService: ScriptsService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager
@@ -34,6 +36,8 @@ export class ScriptsDeleteDialogComponent {
                 content: 'Deleted an scripts'
             });
             this.activeModal.dismiss(true);
+            this.toastr.success('Script deletado com sucesso!', 'Excluido!');
+
         });
     }
 }

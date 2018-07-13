@@ -10,6 +10,7 @@ import { Scripts } from './scripts.model';
 import { ScriptsPopupService } from './scripts-popup.service';
 import { ScriptsService } from './scripts.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'jhi-scripts-dialog',
@@ -21,6 +22,7 @@ export class ScriptsDialogComponent implements OnInit {
     isSaving: boolean;
 
     constructor(
+        private toastr: ToastrService,
         public activeModal: NgbActiveModal,
         private scriptsService: ScriptsService,
         private spinner: NgxSpinnerService,
@@ -45,12 +47,15 @@ export class ScriptsDialogComponent implements OnInit {
             setTimeout(() => {
                 this.spinner.hide();
                 }, 3000);
+            this.toastr.success('Script alterado com sucesso!', 'Alterado!');
+
         } else {
             this.subscribeToSaveResponse(
                 this.scriptsService.create(this.scripts));
             setTimeout(() => {
                 this.spinner.hide();
                 }, 3000);
+             this.toastr.success('Script criado com sucesso!', 'Novo!');
         }
     }
 

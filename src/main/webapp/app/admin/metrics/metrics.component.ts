@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { JhiMetricsMonitoringModalComponent } from './metrics-modal.component';
 import { JhiMetricsService } from './metrics.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-metrics',
@@ -17,13 +18,18 @@ export class JhiMetricsMonitoringComponent implements OnInit {
 
     constructor(
         private modalService: NgbModal,
-        private metricsService: JhiMetricsService
+        private metricsService: JhiMetricsService,
+        private spinner: NgxSpinnerService
     ) {
         this.JCACHE_KEY = 'jcache.statistics';
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.refresh();
+        setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
     }
 
     refresh() {

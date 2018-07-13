@@ -140,6 +140,39 @@ mat-toolbar-row {
 .ng-invalid:not(form), .ng-valid[required], .ng-valid.required {
   border-left: none !important;
 }
+ 
+
+.table-title {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+.button-actions {
+  text-align: center !important;
+}
+
+td.mat-cell:last-child, td.mat-footer-cell:last-child, th.mat-header-cell:last-child {
+  padding-right: 0px !important;
+}
+
+.head-table{
+  background: #3077B4;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.jh-card{
+    padding:0% !important;
+}
+
 
 @media screen and (max-width: 992px) {
   .mat-fab {
@@ -147,5 +180,6 @@ mat-toolbar-row {
     top: 0px;
   }
 }
+
 
 

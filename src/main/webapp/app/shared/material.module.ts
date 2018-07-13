@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import { MatChipsModule } from '@angular/material/chips';
         MatChipsModule,
         MatNativeDateModule,
         MatDatepickerModule,
-        MatSelectModule
+        MatSelectModule,
+        MatPaginatorModule
     ],
     exports : [
         MatButtonModule,
@@ -66,7 +68,8 @@ import { MatChipsModule } from '@angular/material/chips';
         MatChipsModule,
         MatNativeDateModule,
         MatDatepickerModule,
-        MatSelectModule
+        MatSelectModule,
+        MatPaginatorModule
     ],
 })
 export class MaterialModule {}

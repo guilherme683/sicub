@@ -1,12 +1,15 @@
-<div class="row" [ngSwitch]="isAuthenticated()" id="visivel">
+<ngx-spinner
+    bdColor = "rgba(246,244,244,0.8)" size = "medium" color = "#3f51b5" type = "ball-clip-rotate"
+></ngx-spinner>
+<!-- <div class="row" [ngSwitch]="isAuthenticated()" id="visivel">
     <div class="col-md-12">
         <div class="alert alert-success animated fadeInRight" *ngSwitchCase="true">
             <span *ngIf="account" jhiTranslate="home.logged.message" translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="row" [ngSwitch]="isAuthenticated()">
+<div class="row mat-elevation-z8" [ngSwitch]="isAuthenticated()">
     <div class="col-md-12 text-center">
         <span class="logo-img"></span>
         <h1 class="display-4" jhiTranslate="home.title">Welcome, Java Hipster!</h1>

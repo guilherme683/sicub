@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { ITEMS_PER_PAGE, Principal, User, UserService } from '../../shared';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'jhi-user-mgmt',
@@ -32,7 +33,9 @@ export class UserMgmtComponent implements OnInit, OnDestroy {
         private parseLinks: JhiParseLinks,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private spinner: NgxSpinnerService
+
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
@@ -44,9 +47,13 @@ export class UserMgmtComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.principal.identity().then((account) => {
             this.currentAccount = account;
             this.loadAll();
+            setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
             this.registerChangeInUsers();
         });
     }
