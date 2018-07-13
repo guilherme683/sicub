@@ -5,6 +5,7 @@ import { JhiParseLinks } from 'ng-jhipster';
 import { Audit } from './audit.model';
 import { AuditsService } from './audits.service';
 import { ITEMS_PER_PAGE } from '../../shared';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'jhi-audit',
@@ -24,7 +25,9 @@ export class AuditsComponent implements OnInit {
 
     constructor(
         private auditsService: AuditsService,
-        private parseLinks: JhiParseLinks
+        private parseLinks: JhiParseLinks,
+        private spinner: NgxSpinnerService
+
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.page = 1;
@@ -43,9 +46,13 @@ export class AuditsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.today();
         this.previousMonth();
         this.onChangeDate();
+        setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
     }
 
     onChangeDate() {

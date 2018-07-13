@@ -12,7 +12,6 @@ import { ScriptsService } from './scripts.service';
     templateUrl: './scripts-detail.component.html'
 })
 export class ScriptsDetailComponent implements OnInit, OnDestroy {
-
     scripts: Scripts;
     private subscription: Subscription;
     private eventSubscriber: Subscription;

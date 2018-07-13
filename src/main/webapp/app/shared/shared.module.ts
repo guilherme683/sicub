@@ -29,7 +29,6 @@ import {
         timeOut: 6000,
         positionClass: 'toast-top-right',
         preventDuplicates: true,
-        progressBar: true,
         }),
     ],
     declarations: [

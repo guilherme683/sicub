@@ -14,7 +14,7 @@
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-md-12">
-            <form name="searchForm" class="form-inline">
+           <!--  <form name="searchForm" class="form-inline">
                 <!--<div class="input-group w-100 mt-3">-->
                     <!--<input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'sicubApp.scripts.home.search' | translate }}">-->
                     <!--<button class="input-group-append btn btn-info" (click)="search(currentSearch)">-->
@@ -24,7 +24,7 @@
                         <!--<span class="fa fa-trash-o"></span>-->
                     <!--</button>-->
                 <!--</div>-->
-                <div class="input-group w-100 mt-3">
+               <!--  <div class="input-group w-100 mt-3">
                     <mat-form-field appearance="outline" class="full-width-search">
                         <mat-label>Pesquisar Script</mat-label>
                         <input matInput placeholder="Pesquisar" type="text" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch">
@@ -36,11 +36,16 @@
                         </mat-icon>
                     </mat-form-field>
                 </div>
-            </form>
+            </form>  -->
+            <mat-form-field class="full-width-search" appearance="outline">
+                <mat-label jhiTranslate="sicubApp.scripts.home.search" for="currentSearch">Pesquisar</mat-label>
+                <input matInput id="currentSearch" name="currentSearch" [(ngModel)]="currentSearch" (keyup)="search(currentSearch)" placeholder="Pesquise por nome"
+                type="text">
+            </mat-form-field>
         </div>
     </div>
     <br/>
-    <div class="table-responsive" *ngIf="scripts">
+   <!--  <div class="table-responsive" *ngIf="scripts">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -86,5 +91,57 @@
             </tr>
             </tbody>
         </table>
+    </div> -->
+    <div class="mat-elevation-z8 table-responsive">
+      <table mat-table [dataSource]="dataSource" matSort matSortActive="acao" matSortDisableClear matSortDirection="asc" class="table-striped full-width-form">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Id </th>
+          <td mat-cell *matCellDef="let scripts"><a [routerLink]="['../scripts', scripts.id ]"> {{scripts.id}}</a> </td>
+      </ng-container>
+
+      <!-- Comando Column -->
+      <ng-container matColumnDef="acao">
+          <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Comando </th>
+          <td mat-cell *matCellDef="let scripts"> {{scripts.acao}} </td>
+      </ng-container>
+
+      <!-- Script Column -->
+      <ng-container matColumnDef="comando">
+          <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Script </th>
+          <td mat-cell *matCellDef="let scripts"> {{scripts.comando}} </td>
+      </ng-container>
+
+      <!-- Sgdb Column -->
+      <ng-container matColumnDef="sgdb">
+          <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Sgdb </th>
+          <td mat-cell *matCellDef="let scripts"> {{scripts.sgdb}} </td>
+      </ng-container>
+
+      <!-- Açoes Column -->
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell class="table-title text-center" *matHeaderCellDef>Ações</th>
+        <td mat-cell class="button-actions" *matCellDef="let scripts">
+            <button mat-mini-fab [routerLink]="['/', { outlets: { popup: 'scripts/'+ scripts.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge" color="primary">
+                <mat-icon aria-label="Editar Script">create</mat-icon>
+            </button>
+            <button mat-mini-fab [routerLink]="['/', { outlets: { popup: 'scripts/'+ scripts.id + '/delete'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge" color="warn">
+                <mat-icon aria-label="Excluir Script">delete</mat-icon>
+            </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
+
+
 </div>

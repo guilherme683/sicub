@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../shared/material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { SicubSharedModule } from '../../shared';
 import {
@@ -27,7 +28,8 @@ const ENTITY_STATES = [
         SicubSharedModule,
         RouterModule.forChild(ENTITY_STATES),
         MaterialModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        NgxDatatableModule
     ],
     declarations: [
         ScriptsComponent,

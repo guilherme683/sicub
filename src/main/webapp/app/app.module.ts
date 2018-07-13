@@ -34,6 +34,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import {
     JhiMainComponent,
@@ -76,8 +77,8 @@ import {
         timeOut: 6000,
         positionClass: 'toast-top-right',
         preventDuplicates: true,
-        progressBar: true,
         }),
+        NgxDatatableModule,
     ],
     declarations: [
         JhiMainComponent,
