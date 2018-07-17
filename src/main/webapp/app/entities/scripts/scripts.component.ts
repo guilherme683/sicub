@@ -65,7 +65,7 @@ export class ScriptsComponent implements OnInit, OnDestroy {
         this.scriptsService.query({
             page: this.page
             }).subscribe(
-                (res: HttpResponse<Scripts[]>) => this.scripts =  res.body,
+                (res: HttpResponse<Scripts[]>) => this.dataSource.data =  res.body,
                 (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
@@ -78,12 +78,12 @@ export class ScriptsComponent implements OnInit, OnDestroy {
 
     search(query) {
         if (!query) {
-            this.dataSource.data = this.scripts;
+            this.scripts = this.dataSource.data;
         } else {
             this.query2 = query;
             this.query2 = this.query2.trim().toLowerCase();
             this.currentSearch = query;
-            this.dataSource.data = this.scripts.filter((scripts: Scripts) => scripts.acao.startsWith(this.currentSearch));
+            this.dataSource.data = this.dataSource.data.filter((scripts: Scripts) => scripts.acao.startsWith(this.currentSearch));
          }
     }
 
