@@ -38,12 +38,13 @@
                 </div>
             </form>  -->
             <mat-form-field class="full-width-search" appearance="outline">
-                <mat-label jhiTranslate="sicubApp.scripts.home.search" for="currentSearch">Pesquisar</mat-label>
-                <input matInput id="currentSearch" name="currentSearch" [(ngModel)]="currentSearch" (keyup)="search(currentSearch)" placeholder="Pesquise por nome"
-                type="text">
+              <mat-label jhiTranslate="sicubApp.scripts.home.search" for="currentSearch">Pesquisar</mat-label>
+              <input matInput id="currentSearch" name="currentSearch" [(ngModel)]="currentSearch" (keyup)="search(currentSearch)" placeholder="Pesquise por nome" style="display: inline;" 
+              type="text">
+              <button mat-raised-button  color="accent" (click)="clear()" *ngIf="currentSearch" class="animated fadeIn">limpar pesquisa</mat-raised-button>
             </mat-form-field>
         </div>
-    </div>
+    </div>  
     <br/>
    <!--  <div class="table-responsive" *ngIf="scripts">
         <table class="table table-striped">
