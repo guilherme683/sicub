@@ -70,11 +70,15 @@ export class ScriptsComponent implements OnInit, OnDestroy {
         );
     }
 
-        reset() {
+    reset() {
         this.page = 0;
         this.scripts = [];
         this.loadAll();
     }
+
+    applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
     search(query) {
         if (!query) {
@@ -93,6 +97,7 @@ export class ScriptsComponent implements OnInit, OnDestroy {
             last: 0
         };
         this.page = 0;
+        this.dataSource.filter = '';
         this.currentSearch = '';
         this.loadAll();
     }
