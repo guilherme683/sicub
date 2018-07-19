@@ -11,7 +11,7 @@
             <i class="fas fa-plus"></i>
         </button>
     </h2>
-    <jhi-alert></jhi-alert>
+    <!-- <jhi-alert></jhi-alert> -->
     <div class="row">
         <div class="col-md-12">
            <!--  <form name="searchForm" class="form-inline">
@@ -38,11 +38,14 @@
                 </div>
             </form>  -->
             <mat-form-field class="full-width-search" appearance="outline">
-              <mat-label jhiTranslate="sicubApp.scripts.home.search" for="currentSearch">Pesquisar</mat-label>
-              <input matInput id="currentSearch" name="currentSearch" [(ngModel)]="currentSearch" (keyup)="search(currentSearch)" placeholder="Pesquise por nome" style="display: inline;" 
-              type="text">
-              <button mat-raised-button  color="accent" (click)="clear()" *ngIf="currentSearch" class="animated fadeIn">limpar pesquisa</mat-raised-button>
+              <mat-label for="currentSearch">Pesquisar</mat-label>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Digite algo" [(ngModel)]="currentSearch" >
+              <mat-icon matSuffix color="accent" (click)="clear()" *ngIf="currentSearch" class="animated fadeInLeft"><a>close</a></mat-icon>
+
             </mat-form-field>
+            <!-- <mat-form-field class="full-width-search">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field> -->
         </div>
     </div>  
     <br/>
@@ -94,7 +97,7 @@
         </table>
     </div> -->
     <div class="mat-elevation-z8 table-responsive">
-      <table mat-table [dataSource]="dataSource" matSort matSortActive="acao" matSortDisableClear matSortDirection="asc" class="table-striped full-width-form">
+      <table mat-table [dataSource]="dataSource" matSort matSortActive="acao" matSortDisableClear matSortDirection="desc" class="table-striped full-width-form">
 
         <!-- Id Column -->
         <ng-container matColumnDef="id">
@@ -141,7 +144,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>
     </div>
 
 
