@@ -100,7 +100,7 @@
         *ngIf="isLoadingResults || isRateLimitReached">
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
         <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-          GitHub's API rate limit has been reached. It will be reset in one minute.
+          O limite de taxa da API do GitHub foi atingido. Será reposto em um minuto.
         </div>
       </div>
       
@@ -108,7 +108,7 @@
       <!-- <div class="example-table-container"> -->
 
         <div class="mat-elevation-z8 table-responsive">
-          <table mat-table [dataSource]="dataSource" matSort matSortActive="acao" matSortDisableClear matSortDirection="desc" class="table-striped full-width-form">
+          <table mat-table [dataSource]="dataSource" matSort matSortActive="acao" matSortDisableClear matSortDirection="desc" class="table-striped full-width-form ">
 
             <!-- Id Column -->
             <ng-container matColumnDef="id">

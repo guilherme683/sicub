@@ -37,7 +37,7 @@
 
         <mat-form-field appearance="outline" class="full-width-form">
               <mat-label jhiTranslate="sicubApp.scripts.acao" for="field_acao">Ação</mat-label>
-              <input matInput placeholder="Ex: Selecionar base" name="acao" id="field_acao" [(ngModel)]="scripts.acao" required minlength="10" maxlength="100"/>
+              <input matInput placeholder="Ex: Selecionar base" name="acao" id="field_acao" [(ngModel)]="scripts.acao" required minlength="10" maxlength=""/>
               <mat-error [hidden]="!editForm.controls.acao?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 10 caracteres.</mat-error>
               <mat-error [hidden]="!editForm.controls.acao?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
         </mat-form-field>
@@ -65,7 +65,7 @@
 </div> -->
     <mat-form-field appearance="outline" class="full-width-form">
          <mat-label jhiTranslate="sicubApp.scripts.comando" for="field_comando">Comando</mat-label>
-         <input matInput placeholder="Ex: select * from pg_tables;" name="comando" id="field_comando" [(ngModel)]="scripts.comando" required minlength="10" maxlength="100"/>
+         <input matInput placeholder="Ex: select * from pg_tables;" name="comando" id="field_comando" [(ngModel)]="scripts.comando" required minlength="10" maxlength=""/>
          <mat-error [hidden]="!editForm.controls.comando?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 10 caracteres.</mat-error>
          <mat-error [hidden]="!editForm.controls.comando?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
     </mat-form-field>
