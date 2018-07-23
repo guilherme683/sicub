@@ -43,7 +43,7 @@ export class ServidoresPopupService {
     }
 
     servidoresModalRef(component: Component, servidores: Servidores): NgbModalRef {
-        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
+        const modalRef = this.modalService.open(component, { size: 'lg', windowClass: 'animated fadeInDown'});
         modalRef.componentInstance.servidores = servidores;
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });

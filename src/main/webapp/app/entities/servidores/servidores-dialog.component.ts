@@ -10,6 +10,8 @@ import { Servidores } from './servidores.model';
 import { ServidoresPopupService } from './servidores-popup.service';
 import { ServidoresService } from './servidores.service';
 import { UsuariosdeSistema, UsuariosdeSistemaService } from '../usuariosde-sistema';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'jhi-servidores-dialog',
@@ -23,10 +25,12 @@ export class ServidoresDialogComponent implements OnInit {
     usuariosdesistemas: UsuariosdeSistema[];
 
     constructor(
+        private toastr: ToastrService,
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private servidoresService: ServidoresService,
         private usuariosdeSistemaService: UsuariosdeSistemaService,
+        private spinner: NgxSpinnerService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -46,9 +50,17 @@ export class ServidoresDialogComponent implements OnInit {
         if (this.servidores.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.servidoresService.update(this.servidores));
+            setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
+            this.toastr.success('Servidor alterado com sucesso!', '');
         } else {
             this.subscribeToSaveResponse(
                 this.servidoresService.create(this.servidores));
+             setTimeout(() => {
+                this.spinner.hide();
+                }, 3000);
+             this.toastr.success('Servidor criado com sucesso!', '');
         }
     }
 

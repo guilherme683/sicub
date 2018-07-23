@@ -1,3 +1,6 @@
+<ngx-spinner
+    bdColor = "rgba(246,244,244,0.8)" size = "medium" color = "#3f51b5" type = "ball-clip-rotate"
+></ngx-spinner>
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
@@ -12,7 +15,7 @@
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="servidores.id" readonly />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.servidores.nome" for="field_nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="field_nome"
                 [(ngModel)]="servidores.nome" required/>
@@ -22,8 +25,15 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+        <mat-form-field appearance="outline" class="full-width-form">
+              <mat-label jhiTranslate="sicubApp.servidores.nome" for="field_acao">Nome</mat-label>
+              <input matInput placeholder="Ex: Boavista" name="nome" id="field_nome" [(ngModel)]="servidores.nome" required minlength="3" maxlength=""/>
+              <mat-error [hidden]="!editForm.controls.nome?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 3 caracteres.</mat-error>
+              <mat-error [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.servidores.sgdb" for="field_sgdb">Sgdb</label>
             <select class="form-control" name="sgdb" [(ngModel)]="servidores.sgdb" id="field_sgdb"  required>
                 <option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</option>
@@ -38,8 +48,20 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+        <mat-form-field appearance="outline" class="full-width-form">
+            <mat-label jhiTranslate="sicubApp.servidores.sgdb" for="field_sgdb">Sgdb</mat-label>
+            <mat-select placeholder="Selecione" name="sgdb" [(ngModel)]="servidores.sgdb" id="field_sgdb" required>
+                <mat-option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</mat-option>
+                <mat-option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</mat-option>
+                <mat-option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</mat-option>
+                <mat-option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</mat-option>
+                <mat-option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.servidores.tipo" for="field_tipo">Tipo</label>
             <select class="form-control" name="tipo" [(ngModel)]="servidores.tipo" id="field_tipo" >
                 <option value="HOMOLOGACAO">{{'sicubApp.Tipo.HOMOLOGACAO' | translate}}</option>
@@ -47,14 +69,32 @@
                 <option value="REPLICACAO">{{'sicubApp.Tipo.REPLICACAO' | translate}}</option>
                 <option value="BACKUP">{{'sicubApp.Tipo.BACKUP' | translate}}</option>
             </select>
-        </div>
+        </div> -->
+
+        <mat-form-field appearance="outline" class="full-width-form">
+            <mat-label jhiTranslate="sicubApp.servidores.tipo" for="field_sgdb">Tipo</mat-label>
+            <mat-select placeholder="Select" name="tipo" [(ngModel)]="servidores.tipo" id="field_sgdb" required>
+                <mat-option value="HOMOLOGACAO">{{'sicubApp.Tipo.HOMOLOGACAO' | translate}}</mat-option>
+                <mat-option value="PRODUCAO">{{'sicubApp.Tipo.PRODUCAO' | translate}}</mat-option>
+                <mat-option value="REPLICACAO">{{'sicubApp.Tipo.REPLICACAO' | translate}}</mat-option>
+                <mat-option value="BACKUP">{{'sicubApp.Tipo.BACKUP' | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
 
     </div>
-    <div class="modal-footer">
+   <!--  <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
             <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div> -->
+    <div class="modal-footer">
+        <button mat-raised-button type="button" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button mat-raised-button color='primary' type="submit" [disabled]="editForm.form.invalid || isSaving">
             <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
         </button>
     </div>

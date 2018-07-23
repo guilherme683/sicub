@@ -1,17 +1,20 @@
 <div>
     <h2>
         <span jhiTranslate="sicubApp.servidores.home.title">Servidores</span>
-        <button class="btn btn-primary float-right jh-create-entity create-servidores" [routerLink]="['/', { outlets: { popup: ['servidores-new'] } }]">
+        <!-- <button class="btn btn-primary float-right jh-create-entity create-servidores" [routerLink]="['/', { outlets: { popup: ['servidores-new'] } }]">
             <span class="fa fa-plus"></span>
             <span class="hidden-sm-down"  jhiTranslate="sicubApp.servidores.home.createLabel">
             Create new Servidores
             </span>
+        </button> -->
+         <button mat-fab color="primary" class="jh-create-entity create-servidores mat-fab-create animated fadeInRight" [routerLink]="['/', { outlets: { popup: ['servidores-new'] } }]" (click)="openVerticallyCentered(content)">
+          <i class="fas fa-plus"></i>
         </button>
     </h2>
-    <jhi-alert></jhi-alert>
+   <!--  <jhi-alert></jhi-alert> -->
     <div class="row">
         <div class="col-sm-12">
-            <form name="searchForm" class="form-inline">
+            <!-- <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
                     <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'sicubApp.servidores.home.search' | translate }}">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
@@ -21,11 +24,16 @@
                         <span class="fa fa-trash-o"></span>
                     </button>
                 </div>
-            </form>
+            </form> -->
+            <mat-form-field class="full-width-search" appearance="outline">
+                <mat-label for="currentSearch">Pesquisar</mat-label>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Digite algo" [(ngModel)]="currentSearch" >
+                <mat-icon matSuffix color="accent" (click)="clear()" *ngIf="currentSearch" class="animated fadeInLeft"><a>close</a></mat-icon>
+              </mat-form-field>
         </div>
     </div>
     <br/>
-    <div class="table-responsive" *ngIf="servidores">
+<!--     <div class="table-responsive" *ngIf="servidores">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -71,5 +79,61 @@
             </tr>
             </tbody>
         </table>
+    </div> -->
+    <div class="example-container mat-elevation-z8">
+        <div class="example-loading-shade"
+        *ngIf="isLoadingResults || isRateLimitReached">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+          O limite de taxa da API do GitHub foi atingido. Será reposto em um minuto.
+        </div>
+      </div>
+      <div class="mat-elevation-z8 table-responsive">
+          <table mat-table [dataSource]="dataSource" matSort matSortActive="nome" matSortDisableClear matSortDirection="desc" class="table-striped full-width-form ">
+
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Id </th>
+              <td mat-cell *matCellDef="let servidores"><a [routerLink]="['../servidores', servidores.id ]"> {{servidores.id}}</a> </td>
+            </ng-container>
+
+            <!-- Nome Column -->
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Nome </th>
+              <td mat-cell *matCellDef="let servidores"> {{servidores.nome}} </td>
+            </ng-container>
+
+             <!-- Nome Column -->
+            <ng-container matColumnDef="sgdb">
+              <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Sgdb </th>
+              <td mat-cell *matCellDef="let servidores"> {{servidores.sgdb}} </td>
+            </ng-container>
+
+            <!-- Tipo Column -->
+            <ng-container matColumnDef="tipo">
+              <th mat-header-cell class="table-title" *matHeaderCellDef mat-sort-header> Tipo </th>
+              <td mat-cell *matCellDef="let servidores"> {{servidores.tipo}} </td>
+            </ng-container>
+
+            <!-- Açoes Column -->
+            <ng-container matColumnDef="acoes">
+              <th mat-header-cell class="table-title text-center" *matHeaderCellDef>Ações</th>
+              <td mat-cell class="button-actions" *matCellDef="let servidores">
+                <button mat-mini-fab [routerLink]="['/', { outlets: { popup: 'servidores/'+ servidores.id + '/edit'} }]"
+                replaceUrl="true"
+                queryParamsHandling="merge" color="primary">
+                <mat-icon aria-label="Editar Servidor">create</mat-icon>
+              </button>
+              <button mat-mini-fab [routerLink]="['/', { outlets: { popup: 'servidores/'+ servidores.id + '/delete'} }]"
+              replaceUrl="true"
+              queryParamsHandling="merge" color="warn">
+              <mat-icon aria-label="Excluir Servidor">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>
     </div>
 </div>

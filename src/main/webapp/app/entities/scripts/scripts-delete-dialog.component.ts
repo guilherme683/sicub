@@ -36,7 +36,7 @@ export class ScriptsDeleteDialogComponent {
                 content: 'Deleted an scripts'
             });
             this.activeModal.dismiss(true);
-            this.toastr.success('Script deletado com sucesso!', 'Excluido!');
+            this.toastr.success('Script deletado com sucesso!', '');
 
         });
     }
