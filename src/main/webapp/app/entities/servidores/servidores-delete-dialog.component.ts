@@ -7,6 +7,7 @@ import { JhiEventManager } from 'ng-jhipster';
 import { Servidores } from './servidores.model';
 import { ServidoresPopupService } from './servidores-popup.service';
 import { ServidoresService } from './servidores.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'jhi-servidores-delete-dialog',
@@ -17,6 +18,7 @@ export class ServidoresDeleteDialogComponent {
     servidores: Servidores;
 
     constructor(
+        private toastr: ToastrService,
         private servidoresService: ServidoresService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager
@@ -34,6 +36,8 @@ export class ServidoresDeleteDialogComponent {
                 content: 'Deleted an servidores'
             });
             this.activeModal.dismiss(true);
+            this.toastr.success('Servidor deletado com sucesso!', '');
+
         });
     }
 }
