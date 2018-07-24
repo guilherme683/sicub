@@ -219,6 +219,20 @@ table {
   max-width: 124px;
 }
 
+.producao{
+  color: red;
+}
+
+.homologacao{
+  color: green;
+}
+
+.replicacao{
+  color: blue;
+}
+
+
+
 @media screen and (max-width: 992px) {
   .mat-fab {
     right: 0px;
