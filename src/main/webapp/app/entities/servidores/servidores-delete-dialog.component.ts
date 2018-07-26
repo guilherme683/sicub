@@ -36,7 +36,7 @@ export class ServidoresDeleteDialogComponent {
                 content: 'Deleted an servidores'
             });
             this.activeModal.dismiss(true);
-            this.toastr.success('Servidor deletado com sucesso!', '');
+            this.toastr.success('Servidor excluído com sucesso!', '');
 
         });
     }

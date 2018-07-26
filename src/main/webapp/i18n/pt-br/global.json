@@ -10,6 +10,7 @@
                 "scripts": "Scripts",
                 "usuariosdeSistema": "Usuariosde Sistema",
                 "servidores": "Servidores",
+                "setor": "Setor",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

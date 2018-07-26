@@ -234,6 +234,10 @@
     semver "^5.3.0"
     semver-intersect "^1.1.2"
 
+"@swimlane/ngx-datatable@^13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@swimlane/ngx-datatable/-/ngx-datatable-13.0.1.tgz#6e949e19130b2054e2715d30d158751c4fbaa502"
+
 "@types/jasmine@2.5.53":
   version "2.5.53"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.53.tgz#4e0cefad09df5ec48c8dd40433512f84b1568d61"
@@ -5935,6 +5939,12 @@ ngx-infinite-scroll@0.5.1:
 ngx-spinner@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ngx-spinner/-/ngx-spinner-2.0.1.tgz#a37e5c1155aca8c436a03da55cb94c626b33bf7f"
+
+ngx-toastr@^8.8.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-8.10.0.tgz#3b5b5c0e766e8f17540e9d6d08d086cb3acaa35a"
+  dependencies:
+    tslib "^1.9.0"
 
 ngx-webstorage@2.0.1:
   version "2.0.1"

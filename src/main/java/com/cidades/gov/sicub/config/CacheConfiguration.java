@@ -50,6 +50,8 @@ public class CacheConfiguration {
             cm.createCache(com.cidades.gov.sicub.domain.UsuariosdeSistema.class.getName() + ".servidores", jcacheConfiguration);
             cm.createCache(com.cidades.gov.sicub.domain.Servidores.class.getName(), jcacheConfiguration);
             cm.createCache(com.cidades.gov.sicub.domain.Servidores.class.getName() + ".nomes", jcacheConfiguration);
+            cm.createCache(com.cidades.gov.sicub.domain.UsuariosdeSistema.class.getName() + ".setors", jcacheConfiguration);
+            cm.createCache(com.cidades.gov.sicub.domain.Setor.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

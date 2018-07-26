@@ -5,7 +5,8 @@
             "HOMOLOGACAO": "HOMOLOGACAO",
             "PRODUCAO": "PRODUCAO",
             "REPLICACAO": "REPLICACAO",
-            "BACKUP": "BACKUP"
+            "BACKUP": "BACKUP",
+            "ETL": "ETL"
         }
     }
 }
