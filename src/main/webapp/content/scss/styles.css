@@ -231,7 +231,9 @@ table {
   color: blue;
 }
 
-
+.etl{
+  color: brown;
+}
 
 @media screen and (max-width: 992px) {
   .mat-fab {

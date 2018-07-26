@@ -92,7 +92,7 @@ export class ServidoresComponent implements OnInit, OnDestroy {
     search(query) {
         if (!query) {
             this.servidores = this.dataSource.data;
-        }else {
+        } else {
             this.query2 = query;
             this.query2 = this.query2.trim().toLowerCase();
             this.currentSearch = query;
@@ -124,7 +124,7 @@ export class ServidoresComponent implements OnInit, OnDestroy {
             return this.exampleDatabase!.getRepoIssues(
                 this.sort.active, this.sort.direction, this.paginator.pageIndex);
         }),
-        map(data => {
+        map((data) => {
           // Flip flag to show that loading has finished.
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
@@ -138,7 +138,7 @@ export class ServidoresComponent implements OnInit, OnDestroy {
           this.isRateLimitReached = true;
           return observableOf([]);
       })
-        ).subscribe(data => this.data = data);
+        ).subscribe((data) => this.data = data);
 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

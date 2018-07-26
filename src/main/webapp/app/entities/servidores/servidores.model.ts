@@ -12,7 +12,8 @@ export const enum Tipo {
     'HOMOLOGACAO',
     'PRODUCAO',
     'REPLICACAO',
-    'BACKUP'
+    'BACKUP',
+    'ETL'
 }
 
 export class Servidores implements BaseEntity {

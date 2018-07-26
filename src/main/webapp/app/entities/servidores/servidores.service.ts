@@ -1,8 +1,6 @@
-
-import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
 import { Servidores } from './servidores.model';
@@ -20,25 +18,25 @@ export class ServidoresService {
 
     create(servidores: Servidores): Observable<EntityResponseType> {
         const copy = this.convert(servidores);
-        return this.http.post<Servidores>(this.resourceUrl, copy, { observe: 'response' }).pipe(
-            map((res: EntityResponseType) => this.convertResponse(res)));
+        return this.http.post<Servidores>(this.resourceUrl, copy, { observe: 'response' })
+            .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
     update(servidores: Servidores): Observable<EntityResponseType> {
         const copy = this.convert(servidores);
-        return this.http.put<Servidores>(this.resourceUrl, copy, { observe: 'response' }).pipe(
-            map((res: EntityResponseType) => this.convertResponse(res)));
+        return this.http.put<Servidores>(this.resourceUrl, copy, { observe: 'response' })
+            .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http.get<Servidores>(`${this.resourceUrl}/${id}`, { observe: 'response'}).pipe(
-            map((res: EntityResponseType) => this.convertResponse(res)));
+        return this.http.get<Servidores>(`${this.resourceUrl}/${id}`, { observe: 'response'})
+            .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
     query(req?: any): Observable<HttpResponse<Servidores[]>> {
         const options = createRequestOption(req);
-        return this.http.get<Servidores[]>(this.resourceUrl, { params: options, observe: 'response' }).pipe(
-            map((res: HttpResponse<Servidores[]>) => this.convertArrayResponse(res)));
+        return this.http.get<Servidores[]>(this.resourceUrl, { params: options, observe: 'response' })
+            .map((res: HttpResponse<Servidores[]>) => this.convertArrayResponse(res));
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
@@ -47,8 +45,8 @@ export class ServidoresService {
 
     search(req?: any): Observable<HttpResponse<Servidores[]>> {
         const options = createRequestOption(req);
-        return this.http.get<Servidores[]>(this.resourceSearchUrl, { params: options, observe: 'response' }).pipe(
-            map((res: HttpResponse<Servidores[]>) => this.convertArrayResponse(res)));
+        return this.http.get<Servidores[]>(this.resourceSearchUrl, { params: options, observe: 'response' })
+            .map((res: HttpResponse<Servidores[]>) => this.convertArrayResponse(res));
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {
