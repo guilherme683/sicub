@@ -50,7 +50,7 @@ export class UsuariosdeSistemaPopupService {
     }
 
     usuariosdeSistemaModalRef(component: Component, usuariosdeSistema: UsuariosdeSistema): NgbModalRef {
-        const modalRef = this.modalService.open(component, { size: 'lg', backdrop: 'static'});
+        const modalRef = this.modalService.open(component, { size: 'lg', windowClass: 'animated fadeInDown'});
         modalRef.componentInstance.usuariosdeSistema = usuariosdeSistema;
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true, queryParamsHandling: 'merge' });

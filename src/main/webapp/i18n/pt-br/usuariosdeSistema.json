@@ -3,19 +3,19 @@
     "sicubApp": {
         "usuariosdeSistema" : {
             "home": {
-                "title": "Usuariosde Sistemas",
-                "createLabel": "Criar novo Usuariosde Sistema",
-                "createOrEditLabel": "Criar ou editar Usuariosde Sistema",
-                "search": "Pesquisar por Usuariosde Sistema"
+                "title": "Usuários de Sistemas",
+                "createLabel": "Criar novo Usuário de Sistema",
+                "createOrEditLabel": "Criar ou editar Usuário de Sistema",
+                "search": "Pesquisar por Usuários de Sistema"
             },
-            "created": "Um novo Usuariosde Sistema foi criado com o identificador {{ param }}",
-            "updated": "Um Usuariosde Sistema foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Usuariosde Sistema foi deletado com o identificador {{ param }}",
+            "created": "Um novo Usuário de Sistema foi criado com o identificador {{ param }}",
+            "updated": "Um Usuário de Sistema foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Usuário de Sistema foi deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Usuariosde Sistema {{ id }}?"
+                "question": "Tem certeza de que deseja excluir o Usuário de Sistema:  <strong>{{ nome }}</strong>?"
             },
             "detail": {
-                "title": "Usuariosde Sistema"
+                "title": "Usuário de Sistema"
             },
             "nome": "Nome",
             "senha": "Senha",
