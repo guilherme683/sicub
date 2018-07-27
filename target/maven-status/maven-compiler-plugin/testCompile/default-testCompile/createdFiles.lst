@@ -2,7 +2,6 @@ com/cidades/gov/sicub/web/rest/errors/ExceptionTranslatorTestController$TestResp
 com/cidades/gov/sicub/web/rest/errors/ExceptionTranslatorTestController$TestDTO.class
 com/cidades/gov/sicub/web/rest/LogsResourceIntTest.class
 com/cidades/gov/sicub/web/rest/errors/ExceptionTranslatorIntTest.class
-com/cidades/gov/sicub/web/rest/SetorResourceIntTest.class
 com/cidades/gov/sicub/service/MailServiceIntTest.class
 com/cidades/gov/sicub/config/WebConfigurerTestController.class
 com/cidades/gov/sicub/web/rest/UserResourceIntTest.class

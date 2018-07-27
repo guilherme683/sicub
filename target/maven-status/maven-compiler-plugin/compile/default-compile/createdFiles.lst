@@ -13,7 +13,6 @@ com/cidades/gov/sicub/web/rest/errors/ErrorConstants.class
 com/cidades/gov/sicub/security/jwt/JWTFilter.class
 com/cidades/gov/sicub/config/DefaultProfileUtil.class
 com/cidades/gov/sicub/config/MetricsConfiguration.class
-com/cidades/gov/sicub/repository/search/SetorSearchRepository.class
 com/cidades/gov/sicub/web/rest/ProfileInfoResource.class
 com/cidades/gov/sicub/web/rest/errors/EmailAlreadyUsedException.class
 com/cidades/gov/sicub/repository/PersistenceAuditEventRepository.class
@@ -29,9 +28,7 @@ com/cidades/gov/sicub/domain/enumeration/Area.class
 com/cidades/gov/sicub/repository/search/UsuariosdeSistemaSearchRepository.class
 com/cidades/gov/sicub/web/rest/AuditResource.class
 com/cidades/gov/sicub/service/UserService.class
-com/cidades/gov/sicub/repository/SetorRepository.class
 com/cidades/gov/sicub/web/rest/vm/KeyAndPasswordVM.class
-com/cidades/gov/sicub/domain/Setor.class
 com/cidades/gov/sicub/web/rest/UsuariosdeSistemaResource.class
 com/cidades/gov/sicub/service/AuditEventService.class
 com/cidades/gov/sicub/config/ApplicationProperties.class
@@ -67,7 +64,6 @@ com/cidades/gov/sicub/domain/User_.class
 com/cidades/gov/sicub/security/UserNotActivatedException.class
 com/cidades/gov/sicub/config/CacheConfiguration.class
 com/cidades/gov/sicub/web/rest/errors/EmailNotFoundException.class
-com/cidades/gov/sicub/domain/Setor_.class
 com/cidades/gov/sicub/domain/UsuariosdeSistema_.class
 com/cidades/gov/sicub/domain/PersistentAuditEvent.class
 com/cidades/gov/sicub/repository/search/UserSearchRepository.class
@@ -94,4 +90,3 @@ com/cidades/gov/sicub/web/rest/AccountResource.class
 com/cidades/gov/sicub/SicubApp.class
 com/cidades/gov/sicub/web/rest/vm/ManagedUserVM.class
 com/cidades/gov/sicub/domain/UsuariosdeSistema.class
-com/cidades/gov/sicub/web/rest/SetorResource.class

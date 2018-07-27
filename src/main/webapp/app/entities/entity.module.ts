@@ -5,7 +5,6 @@ import { SicubUsuariosdeSistemaModule } from './usuariosde-sistema/usuariosde-si
 import { SicubServidoresModule } from './servidores/servidores.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { SicubSetorModule } from './setor/setor.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -14,7 +13,6 @@ import { SicubSetorModule } from './setor/setor.module';
         SicubUsuariosdeSistemaModule,
         SicubServidoresModule,
         NgxDatatableModule,
-        SicubSetorModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
