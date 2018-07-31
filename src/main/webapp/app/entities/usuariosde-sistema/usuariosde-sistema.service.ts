@@ -72,6 +72,8 @@ export class UsuariosdeSistemaService {
         const copy: UsuariosdeSistema = Object.assign({}, usuariosdeSistema);
         copy.dataCriacao = this.dateUtils
             .convertLocalDateFromServer(usuariosdeSistema.dataCriacao);
+            copy.dataCriacao = this.dateUtils
+                .convertLocalDateFromServer(usuariosdeSistema.dataCriacao);
         return copy;
     }
 
@@ -81,7 +83,19 @@ export class UsuariosdeSistemaService {
     private convert(usuariosdeSistema: UsuariosdeSistema): UsuariosdeSistema {
         const copy: UsuariosdeSistema = Object.assign({}, usuariosdeSistema);
         copy.dataCriacao = this.dateUtils
-            .convertLocalDateToServer(usuariosdeSistema.dataCriacao);
+            .convertLocalDateToServer(this.convertDateToJSON(usuariosdeSistema.dataCriacao));
+        if (usuariosdeSistema.dataCriacao !== undefined && usuariosdeSistema.dataCriacao !== null) {
+                copy.dataCriacao = this.dateUtils
+                    .convertLocalDateToServer(this.convertDateToJSON(usuariosdeSistema.dataCriacao));
+            }
         return copy;
+    }
+
+        private convertDateToJSON(date: Date) {
+        const ano = date.getFullYear();
+        const mes = date.getMonth() + 1;
+        const dia = date.getDate();
+        const data: string = '{"year":' + ano + ',"month":' + mes + ',"day":' + dia + '}';
+        return JSON.parse(data);
     }
 }

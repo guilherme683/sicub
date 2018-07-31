@@ -1,3 +1,6 @@
+<ngx-spinner
+    bdColor = "rgba(246,244,244,0.8)" size = "medium" color = "#3f51b5" type = "ball-clip-rotate"
+></ngx-spinner>
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
@@ -12,7 +15,7 @@
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="usuariosdeSistema.id" readonly />
         </div>
-        <div class="form-group">
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.nome" for="field_nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="field_nome"
                 [(ngModel)]="usuariosdeSistema.nome" required/>
@@ -22,8 +25,17 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+         <mat-form-field appearance="outline" class="full-width-form">
+              <mat-label jhiTranslate="sicubApp.usuariosdeSistema.nome" for="field_nome">Nome</mat-label>
+              <input matInput placeholder="Ex: sys.snsa" name="nome" id="field_nome" [(ngModel)]="usuariosdeSistema.nome" required minlength="3" maxlength=""/>
+              <mat-error [hidden]="!editForm.controls.nome?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">Tamanho mínimo de 3 caracteres.</mat-error>
+              <mat-error [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+        
+
+      <!--   <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.senha" for="field_senha">Senha</label>
             <input type="text" class="form-control" name="senha" id="field_senha"
                 [(ngModel)]="usuariosdeSistema.senha" required/>
@@ -33,8 +45,16 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+        <mat-form-field appearance="outline" class="full-width-form">
+              <mat-label jhiTranslate="sicubApp.usuariosdeSistema.senha" for="field_senha">Senha</mat-label>
+              <input matInput placeholder="Ex: sys.snsa.***" name="senha" id="field_senha" [(ngModel)]="usuariosdeSistema.senha" required minlength="3" maxlength=""/>
+              <mat-error [hidden]="!editForm.controls.senha?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">Tamanho mínimo de 3 caracteres.</mat-error>
+              <mat-error [hidden]="!editForm.controls.senha?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.sgdb" for="field_sgdb">Sgdb</label>
             <select class="form-control" name="sgdb" [(ngModel)]="usuariosdeSistema.sgdb" id="field_sgdb"  required>
                 <option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</option>
@@ -49,8 +69,21 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+         <mat-form-field appearance="outline" class="full-width-form">
+            <mat-label jhiTranslate="sicubApp.usuariosdeSistema.sgdb" for="field_sgdb">Sgdb</mat-label>
+            <mat-select placeholder="Selecione" name="sgdb" [(ngModel)]="usuariosdeSistema.sgdb" id="field_sgdb" required>
+                <mat-option value="MYSQL">{{'sicubApp.Sgdb.MYSQL' | translate}}</mat-option>
+                <mat-option value="MARIADB">{{'sicubApp.Sgdb.MARIADB' | translate}}</mat-option>
+                <mat-option value="ORACLE">{{'sicubApp.Sgdb.ORACLE' | translate}}</mat-option>
+                <mat-option value="POSTGRESQL">{{'sicubApp.Sgdb.POSTGRESQL' | translate}}</mat-option>
+                <mat-option value="SQLSERVER">{{'sicubApp.Sgdb.SQLSERVER' | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.base" for="field_base">Base</label>
             <input type="text" class="form-control" name="base" id="field_base"
                 [(ngModel)]="usuariosdeSistema.base" required/>
@@ -60,13 +93,29 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+         <mat-form-field appearance="outline" class="full-width-form">
+          <mat-label jhiTranslate="sicubApp.usuariosdeSistema.base" for="field_base">Base de Dados</mat-label>
+          <input matInput placeholder="Ex: corporativo" name="base" id="field_base" [(ngModel)]="usuariosdeSistema.base" required minlength="3" maxlength=""/>
+          <mat-error [hidden]="!editForm.controls.base?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">Tamanho mínimo de 3 caracteres.</mat-error>
+          <mat-error [hidden]="!editForm.controls.base?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.esquema" for="field_esquema">Esquema</label>
             <input type="text" class="form-control" name="esquema" id="field_esquema"
                 [(ngModel)]="usuariosdeSistema.esquema" />
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+        <mat-form-field appearance="outline" class="full-width-form">
+              <mat-label jhiTranslate="sicubApp.usuariosdeSistema.esquema" for="field_esquema">Base de Dados</mat-label>
+              <input matInput placeholder="Ex: mcmv, snsa , todos" name="esquema" id="field_esquema" [(ngModel)]="usuariosdeSistema.esquema"/>
+        </mat-form-field>
+
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.descricaoBase" for="field_descricaoBase">Descricao Base</label>
             <input type="text" class="form-control" name="descricaoBase" id="field_descricaoBase"
                 [(ngModel)]="usuariosdeSistema.descricaoBase" required/>
@@ -76,8 +125,20 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+         <mat-form-field appearance="outline" class="full-width-form">
+          <mat-label jhiTranslate="sicubApp.usuariosdeSistema.descricaoBase" for="field_descricaoBase">Base de Dados</mat-label>
+          <textarea matInput placeholder="Ex: Base de dados do Sistema SACI" #message name="descricaoBase" id="field_descricaoBase" [(ngModel)]="usuariosdeSistema.descricaoBase" required minlength="10" maxlength="256"></textarea>
+         <!--  <mat-hint align="start"><strong>Caracteres restantes</strong> </mat-hint> -->
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+          <mat-error [hidden]="!editForm.controls.descricaoBase?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">Tamanho mínimo de 10 caracteres.</mat-error>
+          <mat-error [hidden]="!editForm.controls.descricaoBase?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 256 }">Tamanho máximo de 256 caracteres.</mat-error>
+          <mat-error [hidden]="!editForm.controls.descricaoBase?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>    
+
+        <!-- <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.solicitante" for="field_solicitante">Solicitante</label>
             <input type="text" class="form-control" name="solicitante" id="field_solicitante"
                 [(ngModel)]="usuariosdeSistema.solicitante" required/>
@@ -87,8 +148,17 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+         <mat-form-field appearance="outline" class="full-width-form">
+          <mat-label jhiTranslate="sicubApp.usuariosdeSistema.solicitante" for="field_solicitante">Solicitante</mat-label>
+          <input matInput placeholder="Ex: Ronald Vieira" name="solicitante" id="field_solicitante" [(ngModel)]="usuariosdeSistema.solicitante" required minlength="3" maxlength=""/>
+          <mat-error [hidden]="!editForm.controls.solicitante?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 3 }">Tamanho mínimo de 3 caracteres.</mat-error>
+          <mat-error [hidden]="!editForm.controls.solicitante?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.ramal" for="field_ramal">Ramal</label>
             <input type="number" class="form-control" name="ramal" id="field_ramal"
                 [(ngModel)]="usuariosdeSistema.ramal" required/>
@@ -102,8 +172,18 @@
                     This field should be a number.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+        <mat-form-field appearance="outline" class="full-width-form">
+          <mat-label jhiTranslate="sicubApp.usuariosdeSistema.ramal" for="field_ramal">Ramal</mat-label>
+          <input matInput pattern="[0-9]+([,\.][0-9]+)?" placeholder="Ex: 1160" name="ramal" id="field_ramal" [(ngModel)]="usuariosdeSistema.ramal" required minlength="4">
+          <mat-error [hidden]="!editForm.controls.ramal?.errors?.minlength">Digite 4 números para compor o ramal.</mat-error>
+          <mat-error [hidden]="!editForm.controls.ramal?.errors?.number" >Digite apenas números.</mat-error>
+          <mat-error [hidden]="!editForm.controls.ramal?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.email" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                 [(ngModel)]="usuariosdeSistema.email" required/>
@@ -113,8 +193,17 @@
                    This field is required.
                 </small>
             </div>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+        <mat-form-field appearance="outline" class="full-width-form">
+          <mat-label jhiTranslate="sicubApp.usuariosdeSistema.email" for="field_email">Email</mat-label>
+          <input matInput placeholder="Ex: exemplo@cidades.gov.br" name="email" id="field_email" [(ngModel)]="usuariosdeSistema.email" required />
+          <mat-error [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)"></mat-error>
+          <mat-error [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">Preenchimento obrigatório.</mat-error>
+        </mat-form-field>
+
+       <!--  <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.area" for="field_area">Area</label>
             <select class="form-control" name="area" [(ngModel)]="usuariosdeSistema.area" id="field_area" >
                 <option value="SNH">{{'sicubApp.Area.SNH' | translate}}</option>
@@ -129,8 +218,27 @@
                 <option value="PROTOCOLO">{{'sicubApp.Area.PROTOCOLO' | translate}}</option>
                 <option value="PATRIMONIO">{{'sicubApp.Area.PATRIMONIO' | translate}}</option>
             </select>
-        </div>
-        <div class="form-group">
+        </div> -->
+
+
+        <mat-form-field appearance="outline" class="full-width-form">
+            <mat-label jhiTranslate="sicubApp.usuariosdeSistema.area" for="field_area">Area</mat-label>
+            <mat-select placeholder="Selecione" name="area" [(ngModel)]="usuariosdeSistema.area" id="field_area" required>
+                <mat-option value="SNH">{{'sicubApp.Area.SNH' | translate}}</mat-option>
+                <mat-option value="SNSA">{{'sicubApp.Area.SNSA' | translate}}</mat-option>
+                <mat-option value="SEMOB">{{'sicubApp.Area.SEMOB' | translate}}</mat-option>
+                <mat-option value="SNAPU">{{'sicubApp.Area.SNAPU' | translate}}</mat-option>
+                <mat-option value="CGLOG">{{'sicubApp.Area.CGLOG' | translate}}</mat-option>
+                <mat-option value="CGMI">{{'sicubApp.Area.CGMI' | translate}}</mat-option>
+                <mat-option value="DENATRAN">{{'sicubApp.Area.DENATRAN' | translate}}</mat-option>
+                <mat-option value="ASPAR">{{'sicubApp.Area.ASPAR' | translate}}</mat-option>
+                <mat-option value="CONJUR">{{'sicubApp.Area.CONJUR' | translate}}</mat-option>
+                <mat-option value="PROTOCOLO">{{'sicubApp.Area.PROTOCOLO' | translate}}</mat-option>
+                <mat-option value="PATRIMONIO">{{'sicubApp.Area.PATRIMONIO' | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+      <!--   <div class="form-group">
             <label class="form-control-label" jhiTranslate="sicubApp.usuariosdeSistema.dataCriacao" for="field_dataCriacao">Data Criacao</label>
             <div class="input-group">
                 <input id="field_dataCriacao" type="text" class="form-control" name="dataCriacao" ngbDatepicker  #dataCriacaoDp="ngbDatepicker" [(ngModel)]="usuariosdeSistema.dataCriacao"
@@ -145,7 +253,16 @@
                    This field is required.
                 </small>
             </div>
-        </div>
+        </div> -->
+
+          <mat-form-field appearance="outline" class="full-width-form">
+            <mat-label jhiTranslate="sicubApp.usuariosdeSistema.dataCriacao" for="field_dataCriacao">Data Criacao</mat-label>
+                <input matInput id="field_dataCriacao"  name="dataCriacao" placeholder="Selecione a data no calendário"  [matDatepicker]="picker" [(ngModel)]="usuariosdeSistema.dataCriacao"
+                required/>
+                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
 
         <div class="form-group">
             <label jhiTranslate="sicubApp.usuariosdeSistema.servidores" for="field_servidores">Servidores</label>

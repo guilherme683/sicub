@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../shared/material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { SicubSharedModule } from '../../shared';
 import {
@@ -29,7 +30,8 @@ const ENTITY_STATES = [
         RouterModule.forChild(ENTITY_STATES),
         MaterialModule,
         NgxSpinnerModule,
-        NgxDatatableModule
+        NgxDatatableModule,
+        MatDatepickerModule
     ],
     declarations: [
         UsuariosdeSistemaComponent,
